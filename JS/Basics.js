@@ -1,6 +1,5 @@
 // Variables & Declaration
 // var,let,const 
-
 var d; // Declaration
 var di= 1; //Declaration and inialization (1st time)
 var di= 10; //Re-declaration and inialization (2nd time)
@@ -51,5 +50,7 @@ console.log(hoist); //undefined , due to hoisting
 var hoist=1; //Declaration and inialization
 var hoist=undefined; //Declaration is moved to the top 
 hoist=1; //initialization remains in place
-
-// 
+     
+// Data Types + Type system
+// Primitive Data types : number , string , boolean , null , undefined , symbol , bigint
+// Non-Primitive/Reference Data types : object , array , function
