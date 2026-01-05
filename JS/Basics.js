@@ -1,3 +1,5 @@
+/*Java Script Basics*/
+
 // Variables & Declaration
 // var,let,const 
 var d; // Declaration
@@ -53,4 +55,8 @@ hoist=1; //initialization remains in place
      
 // Data Types + Type system
 // Primitive Data types : number , string , boolean , null , undefined , symbol , bigint
-// Non-Primitive/Reference Data types : object , array , function
+// cannot store multiple values and its like duplicate the data each time when we put it in new variable 
+// Non-Primitive/Reference Data types : object {} , array [] , function ()
+// can store multiple values and its like store the address of the data in new variable
+ 
+// Dynamic Typing : variable can hold any type of data at different times 
