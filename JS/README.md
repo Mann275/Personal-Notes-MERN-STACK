@@ -144,10 +144,6 @@
 
 ---
 
-## Files in this Directory
-- [Basics.js](Basics.js) - Complete implementation of all topics above
-- [index.html](index.html) - HTML file for testing JavaScript code
-
 ## Getting Started
 1. Open [Basics.js](Basics.js) to see practical examples of all concepts
 2. Use [index.html](index.html) to test your JavaScript code in the browser
