@@ -117,4 +117,97 @@ do{
     i++;
 }while(i<5);
 */
+     
+// Functions
+// Function Declaration
+function funcDec(){}
+// Function Expression
+let funcExp= function(){};
+// Arrow Function
+let arrowFunc= ()=>{};
+// parameters vs Arguments
+// Parameters are the names listed in the function definition
+// Arguments are the real values passed to the function
+/* 
+for dynamic value
+let x=prompt("Enter your name: ");
+console.log(`${x} hello`);
+*/
+ 
+// Default , rest and spread parameters
+// Default parameters : default value assigned to parameter if no argument is passed
+// rest parameters : represents an indefinite number of arguments as an array (...xyz) in parameters
+// spread parameters : expands an array into individual elements (...abc) in function call
+ 
+//return value and early return
+// A function can return a value using the return statement
+// Early return is used to exit a function before reaching the end based on a condition
+ 
+// Pure vs Impure functions
+// Pure functions : always produce the same output for the same input and have no side effects
+// Impure functions : may produce different outputs for the same input or have side effects (like modifying external variables)
+ 
+// Closures and Lexical Scoping
+// Closure : a function that retains access to its lexical scope even when the function is executed outside that scope
+// Lexical Scoping : functions are executed using the variable scope of their definition location
+// IIFE (Immediately Invoked Function Expression) : a function that is defined and executed immediately
+     
+// Arrays
+// Array is a special variable that can hold more than one value at a time
+let arr= [1,2,3,4,5]; //Declaration and inialization
+// Accessing array elements using index
+// console.log(arr[0]); //1
+// // Array Methods : push(), pop(), shift(), unshift(), splice(), slice(), sort(),reverse(), indexOf(), includes(), forEach(), map(), filter(), reduce(), some(), every()
+/*
+ arr.push(6); //adds 6 at the end
+ arr.pop(); //removes last element
+ arr.shift(); //removes first element
+ arr.unshift(0); //adds 0 at the beginning
+ let newArr= arr.slice(1,4); //creates a new array from index 1 to 3
+ arr.splice(2,1,10); //removes 1 element at index 2 and adds 10
+ let sort = arr.sort(function(a,b){
+   return a-b;  // a+b for descending order, a-b for ascending order
+}); //sorts the array
+ arr.reverse(); //reverses the array
+ let index= arr.indexOf(23); //returns index of 23
+ let includes= arr.includes(34); //returns true if 34 is present
+ arr.forEach(function(value){
+    console.log(value); //prints each element
+});
+ let newArr= arr.map(function(value){
+    return value * 2; //creates a new array with each element multiplied by 2
+});
+*/
+// destructuring assignment are used to unpack values from arrays or properties from objects into distinct variables
+// let[a1,,a2]= arr; //assigns first and third elements to a1 and a2 respectively, skips second element
+// Spread operator can be used to copy or merge arrays
+// let arr2= [...arr , 6,7,8]; //creates a new array by copying arr and adding 6,7,8 at the end
+     
+// Objects
+// Object is a collection of key-value pairs
+/*
+let obj= {
+    name: 'Mann',
+    age: 22
+}
+for (let key in obj){
+    console.log(`${key} : ${obj[key]}`)
+}
+*/
+// Accessing object properties using dot notation and bracket notation
+// console.log(obj.name); //Mann
+// console.log(obj['age']); //22
+// Object Methods : Object.keys(), Object.values(), Object.entries(), hasOwnProperty(), assign(), freeze(), seal()
+/*
+let keys= Object.keys(obj); //returns an array of keys
+let values= Object.values(obj); //returns an array of values
+let entries= Object.entries(obj); //returns an array of [key,value] pairs
+let hasName= obj.hasOwnProperty('name'); //returns true if 'name' key exists
+let newObj= Object.assign({}, obj, {city: 'NY'}); //creates a new object by merging obj with another object
+Object.freeze(obj); //prevents modifications to obj
+Object.seal(obj); //prevents adding or removing properties from obj but allows modification of existing properties
+*/
+// Clone an object using spread operator
+// Deep Clone using JSON methods
+// let deepClone= JSON.parse(JSON.stringify(obj)); //creates a deep clone of obj
 
