@@ -15,8 +15,12 @@ A comprehensive collection of my programming and development notes, organized by
 
 ## 📑 Complete Index
 
-<details open>
-<summary><h3>🔹 Git & GitHub ✅</h3></summary>
+### 🔹 Git & GitHub ✅
+
+<details>
+<summary><b>📖 Click to View All Git Topics (21 topics covered)</b></summary>
+
+<br>
 
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
@@ -47,13 +51,16 @@ A comprehensive collection of my programming and development notes, organized by
 | 20 | Fetch vs Pull |
 | 21 | .gitignore |
 
-
 </details>
 
 ---
 
-<details open>
-<summary><h3>🔹 HTML ✅</h3></summary>
+### 🔹 HTML ✅
+
+<details>
+<summary><b>📖 Click to View All HTML Topics (18 topics covered)</b></summary>
+
+<br>
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 
@@ -80,13 +87,16 @@ A comprehensive collection of my programming and development notes, organized by
 | 17 | iframe |
 | 18 | Video Tag |
 
-
 </details>
 
 ---
 
-<details open>
-<summary><h3>🔹 CSS ✅</h3></summary>
+### 🔹 CSS ✅
+
+<details>
+<summary><b>📖 Click to View All CSS Topics (25 topics covered)</b></summary>
+
+<br>
 
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
 
