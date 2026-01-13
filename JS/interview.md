@@ -1,5 +1,6 @@
 # JavaScript Interview Guide
 
+<a name="top"></a>
 ## 📑 Table of Contents
 
 ### **Fundamentals**
@@ -88,6 +89,8 @@ const obj = { name: "John" };
 obj.name = "Jane"; // This works
 ```
 
+[⬆️ Back to Top](#top)
+
 ---
 
 ## 2. Data Types
@@ -133,6 +136,8 @@ console.log(typeof arr);    // "object"
 console.log(typeof func);   // "function"
 ```
 
+[⬆️ Back to Top](#top)
+
 ---
 
 ## 3. Type Coercion
@@ -162,6 +167,8 @@ console.log(Boolean(NaN));         // false
 console.log(Boolean(false));       // false
 ```
 
+[⬆️ Back to Top](#top)
+
 ---
 
 ## 4. == vs ===
@@ -185,6 +192,8 @@ console.log("" === false);  // false
 
 // Always prefer === in interviews and production
 ```
+
+[⬆️ Back to Top](#top)
 
 ---
 
@@ -218,6 +227,8 @@ function testScope() {
 console.log(globalVar); // Works
 // console.log(functionVar); // Error! Not accessible
 ```
+
+[⬆️ Back to Top](#top)
 
 ---
 
@@ -254,6 +265,8 @@ var greet = function() {
 };
 ```
 
+[⬆️ Back to Top](#top)
+
 ---
 
 ## 7. Temporal Dead Zone (TDZ)
@@ -279,6 +292,8 @@ function example() {
 console.log(b); // undefined (not error)
 var b = 20;
 ```
+
+[⬆️ Back to Top](#top)
 
 ---
 
@@ -316,6 +331,8 @@ function outer() {
 
 outer();
 ```
+
+[⬆️ Back to Top](#top)
 
 ---
 
@@ -358,6 +375,8 @@ first();
 // Second function end
 // First function end
 ```
+
+[⬆️ Back to Top](#top)
 
 ---
 
@@ -411,6 +430,8 @@ console.log(counter.getCount());  // 1
 // console.log(counter.count); // undefined (private)
 ```
 
+[⬆️ Back to Top](#top)
+
 ---
 
 ## 11. this Keyword
@@ -458,6 +479,8 @@ greet.apply(user); // "Hello, Alice"
 const boundGreet = greet.bind(user);
 boundGreet(); // "Hello, Alice"
 ```
+
+[⬆️ Back to Top](#top)
 
 ---
 
@@ -515,6 +538,8 @@ numbers.forEach(() => {
   console.log(this); // Parent context
 });
 ```
+
+[⬆️ Back to Top](#top)
 
 ---
 
@@ -576,6 +601,8 @@ myModule.publicMethod(); // "I'm private"
 // myModule.privateMethod(); // Error
 ```
 
+[⬆️ Back to Top](#top)
+
 ---
 
 ## 14. Arrays
@@ -622,6 +649,8 @@ const arr = "a-b-c".split("-"); // ["a", "b", "c"]
 const arr4 = [1, 2, 3];
 const arr5 = [...arr4, 4, 5]; // [1, 2, 3, 4, 5]
 ```
+
+[⬆️ Back to Top](#top)
 
 ---
 
@@ -673,6 +702,8 @@ const count = fruits.reduce((acc, fruit) => {
 }, {});
 console.log(count); // { apple: 2, banana: 2, orange: 1 }
 ```
+
+[⬆️ Back to Top](#top)
 
 ---
 
@@ -736,6 +767,8 @@ sealed.y = 2; // Works
 const { name, age = 30 } = person;
 console.log(name, age);
 ```
+
+[⬆️ Back to Top](#top)
 
 ---
 
@@ -818,6 +851,8 @@ console.log(original3.address.city); // "New York" (not affected)
 const deepCopy3 = structuredClone(original3);
 ```
 
+[⬆️ Back to Top](#top)
+
 ---
 
 ## 18. DOM (Document Object Model)
@@ -872,6 +907,8 @@ const lastChild = el1.lastElementChild;
 const nextSibling = el1.nextElementSibling;
 const prevSibling = el1.previousElementSibling;
 ```
+
+[⬆️ Back to Top](#top)
 
 ---
 
@@ -945,6 +982,8 @@ form.addEventListener("submit", (e) => {
 });
 ```
 
+[⬆️ Back to Top](#top)
+
 ---
 
 ## 20. Event Bubbling
@@ -990,6 +1029,8 @@ btn.addEventListener("click", (e) => {
 
 // Now only "Button clicked" will be logged
 ```
+
+[⬆️ Back to Top](#top)
 
 ---
 
@@ -1037,6 +1078,8 @@ btn.addEventListener("click", () => {
 // "Button clicked"
 // "Parent - bubbling"
 ```
+
+[⬆️ Back to Top](#top)
 
 ---
 
@@ -1101,6 +1144,8 @@ todoList.addEventListener("click", (e) => {
   }
 });
 ```
+
+[⬆️ Back to Top](#top)
 
 ---
 
@@ -1172,6 +1217,8 @@ numbers.forEach((num) => {
 
 const doubled = numbers.map((num) => num * 2);
 ```
+
+[⬆️ Back to Top](#top)
 
 ---
 
@@ -1270,6 +1317,8 @@ Promise.any([p1, p2, p3]).then((value) => {
 });
 ```
 
+[⬆️ Back to Top](#top)
+
 ---
 
 ## 25. async / await
@@ -1360,6 +1409,8 @@ async function getUserPosts() {
 }
 ```
 
+[⬆️ Back to Top](#top)
+
 ---
 
 ## 26. Event Loop
@@ -1435,6 +1486,8 @@ console.log("5");
 
 // Output: 1, 5, 2, 4, 3
 ```
+
+[⬆️ Back to Top](#top)
 
 ---
 
@@ -1543,6 +1596,8 @@ const throttledScroll = throttle(() => {
 }, 1000);
 ```
 
+[⬆️ Back to Top](#top)
+
 ---
 
 ## 28. localStorage / sessionStorage
@@ -1648,6 +1703,8 @@ function toggleDarkMode() {
 // - Synchronous (can block main thread)
 // - Not secure (don't store sensitive data)
 ```
+
+[⬆️ Back to Top](#top)
 
 ---
 
@@ -1920,6 +1977,8 @@ try {
 }
 ```
 
+[⬆️ Back to Top](#top)
+
 ---
 
 ## 31. JavaScript Quirks
@@ -2075,5 +2134,7 @@ console.log(arr2.length);  // 3 (length unchanged!)
 15. How do you handle errors in JavaScript?
 
 ---
+
+[⬆️ Back to Top](#top)
 
 **Good luck with your interviews! 🚀**
