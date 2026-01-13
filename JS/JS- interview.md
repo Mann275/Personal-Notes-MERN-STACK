@@ -1,56 +1,5 @@
 # JavaScript Interview Guide
 
-## 📑 Table of Contents
-
-### **Fundamentals**
-1. [var vs let vs const](#1-var-vs-let-vs-const)
-2. [Data Types](#2-data-types)
-3. [Type Coercion](#3-type-coercion)
-4. [== vs ===](#4--vs-)
-5. [Scope (global, function, block)](#5-scope-global-function-block)
-6. [Hoisting](#6-hoisting)
-7. [Temporal Dead Zone](#7-temporal-dead-zone-tdz)
-8. [Execution Context](#8-execution-context)
-9. [Call Stack](#9-call-stack)
-
-### **Functions & Closures**
-10. [Closures](#10-closures)
-11. [this Keyword](#11-this-keyword)
-12. [Arrow Functions vs Normal Functions](#12-arrow-functions-vs-normal-functions)
-13. [IIFE](#13-iife-immediately-invoked-function-expression)
-
-### **Arrays & Objects**
-14. [Arrays](#14-arrays)
-15. [map, filter, reduce](#15-map-filter-reduce)
-16. [Objects](#16-objects)
-17. [Shallow vs Deep Copy](#17-shallow-vs-deep-copy)
-
-### **DOM & Events**
-18. [DOM (Document Object Model)](#18-dom-document-object-model)
-19. [Event Handling](#19-event-handling)
-20. [Event Bubbling](#20-event-bubbling)
-21. [Event Capturing](#21-event-capturing)
-22. [Event Delegation](#22-event-delegation)
-
-### **Asynchronous JavaScript**
-23. [Callbacks](#23-callbacks)
-24. [Promises](#24-promises)
-25. [async / await](#25-async--await)
-26. [Event Loop](#26-event-loop)
-27. [setTimeout / setInterval](#27-settimeout--setinterval)
-
-### **Storage & Modern Features**
-28. [localStorage / sessionStorage](#28-localstorage--sessionstorage)
-29. [ES6 Features](#29-es6-features)
-30. [Error Handling](#30-error-handling)
-31. [JavaScript Quirks](#31-javascript-quirks)
-
-### **Resources**
-- [Interview Tips](#interview-tips)
-- [Common Interview Questions](#common-interview-questions)
-
----
-
 ## 1. var vs let vs const
 
 **Theory:**
