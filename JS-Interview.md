@@ -47,6 +47,37 @@
 31. [Error Handling](#31-error-handling)
 32. [JavaScript Quirks](#32-javascript-quirks)
 
+### **Advanced Concepts**
+33. [Call, Apply & Bind](#33-call-apply--bind)
+34. [Prototype & Inheritance](#34-prototype--inheritance)
+35. [null vs undefined](#35-null-vs-undefined)
+36. [Debounce vs Throttle](#36-debounce-vs-throttle)
+37. [Memory Leaks in JavaScript](#37-memory-leaks-in-javascript)
+38. [How async/await works internally](#38-how-asyncawait-works-internally)
+39. [Event Loop Phases](#39-event-loop-phases)
+
+### **Design Patterns & Architecture**
+40. [Module Pattern (IIFE)](#40-module-pattern-iife)
+41. [Revealing Module Pattern](#41-revealing-module-pattern)
+42. [Factory Function Pattern](#42-factory-function-pattern)
+43. [Observer Pattern (Pub-Sub)](#43-observer-pattern-pub-sub)
+
+### **Performance Optimization**
+44. [Advanced Debouncing & Throttling](#44-advanced-debouncing--throttling)
+45. [Lazy Loading with IntersectionObserver](#45-lazy-loading-with-intersectionobserver)
+46. [DOM Optimization Techniques](#46-dom-optimization-techniques)
+47. [Memory Leak Prevention](#47-memory-leak-prevention)
+
+### **Functional Programming & Architecture**
+48. [Pure vs Impure Functions](#48-pure-vs-impure-functions)
+49. [Function Composition & Pipelines](#49-function-composition--pipelines)
+50. [Separation of Concerns (MVC Pattern)](#50-separation-of-concerns-mvc-pattern)
+51. [Custom Utility Implementations](#51-custom-utility-implementations)
+
+### **Browser Architecture**
+52. [JavaScript Engine & Event Loop Deep Dive](#52-javascript-engine--event-loop-deep-dive)
+53. [Web APIs & Browser Threading](#53-web-apis--browser-threading)
+
 ### **Resources**
 - [Interview Tips](#interview-tips)
 - [Common Interview Questions](#common-interview-questions)
@@ -54,6 +85,10 @@
 ---
 
 ## 1. var vs let vs const
+
+**Definition:** Variables in JavaScript can be declared using three keywords - var, let, and const. Each has different scoping rules, hoisting behavior, and reassignment capabilities.
+
+**Exp:** Yeh teen tarike hain variables banane ke liye. var purana hai, let aur const naye hain. var function mein kaam karta hai, let aur const block mein. const ko change nahi kar sakte.
 
 **Theory:**
 - `var`: Function-scoped, can be re-declared and updated, gets hoisted
@@ -95,6 +130,10 @@ obj.name = "Jane"; // This works
 ---
 
 ## 2. Data Types
+
+**Definition:** Data types specify what kind of data can be stored and manipulated within a program. JavaScript has primitive types (basic values) and reference types (objects).
+
+**Exp:** Data types matlab kya type ka data store kar sakte hain. JavaScript mein do main types hain - primitive (simple values like number, string) aur reference (complex objects).
 
 **Theory:**
 JavaScript has 7 primitive types and 1 reference type:
@@ -143,6 +182,10 @@ console.log(typeof func);   // "function"
 
 ## 3. Type Coercion
 
+**Definition:** Type coercion is the automatic or implicit conversion of values from one data type to another during operations or comparisons.
+
+**Exp:** Type coercion matlab JavaScript automatically ek data type ko doosre mein convert kar deta hai. Jaise "5" + 3 = "53" ho jata hai kyuki number string ban jata hai.
+
 **Theory:**
 Type coercion is automatic conversion of values from one type to another.
 
@@ -174,6 +217,10 @@ console.log(Boolean(false));       // false
 
 ## 4. == vs ===
 
+**Definition:** These are comparison operators in JavaScript. Double equals (==) performs loose equality comparison with type coercion, while triple equals (===) performs strict equality comparison without type coercion.
+
+**Exp:** == wala comparison mein type convert hota hai, === mein bilkul same hona chahiye. Hamesha === use karo kyuki yeh zyada safe hai.
+
 **Theory:**
 - `==` (loose equality): Compares values after type coercion
 - `===` (strict equality): Compares values AND types without coercion
@@ -199,6 +246,10 @@ console.log("" === false);  // false
 ---
 
 ## 5. Scope (global, function, block)
+
+**Definition:** Scope determines the accessibility and visibility of variables, functions, and objects in different parts of the code during runtime.
+
+**Exp:** Scope matlab variables kahan kahan accessible hain. Global scope mein sab jagah mil jata hai, function scope mein sirf function ke andar, block scope mein sirf {} ke andar.
 
 **Theory:**
 Scope determines the accessibility of variables.
@@ -234,6 +285,10 @@ console.log(globalVar); // Works
 ---
 
 ## 6. Hoisting
+
+**Definition:** Hoisting is JavaScript's default behavior of moving all variable and function declarations to the top of their respective scopes during the compilation phase, before code execution.
+
+**Exp:** Hoisting matlab JavaScript variables aur functions ko upar le jaata hai. Isliye aap variable ko declare karne se pehle use kar sakte ho (but undefined milega).
 
 **Theory:**
 Hoisting is JavaScript's behavior of moving declarations to the top of their scope before code execution.
@@ -272,6 +327,10 @@ var greet = function() {
 
 ## 7. Temporal Dead Zone (TDZ)
 
+**Definition:** The Temporal Dead Zone is the period of time during which let and const variables exist but cannot be accessed, from the beginning of the scope until the declaration is encountered.
+
+**Exp:** TDZ matlab let aur const variables ka ek time period jahan wo exist karte hain but access nahi kar sakte. Iske wajah se ReferenceError aata hai.
+
 **Theory:**
 TDZ is the time between entering scope and variable declaration where you cannot access the variable.
 
@@ -299,6 +358,10 @@ var b = 20;
 ---
 
 ## 8. Execution Context
+
+**Definition:** Execution Context is an environment in which JavaScript code is executed. It contains the code being executed along with information needed for its execution like variables, functions, and scope.
+
+**Exp:** Execution context matlab ek container hai jaha JavaScript code run hota hai. Isme variables, functions aur scope ki information hoti hai. Jaise ek room hai jaha sab cheezein organized hain.
 
 **Theory:**
 Execution context is the environment where JavaScript code is executed. It contains:
@@ -338,6 +401,10 @@ outer();
 ---
 
 ## 9. Call Stack
+
+**Definition:** The Call Stack is a data structure that keeps track of function calls in a program. It follows the Last In, First Out (LIFO) principle to manage function execution order.
+
+**Exp:** Call stack ek list hai jo track karta hai ki kaunsa function chal raha hai. Jaise books ka stack - jo last mein aaya wo pehle nikega (LIFO).
 
 **Theory:**
 Call stack is a mechanism to keep track of function calls. It follows LIFO (Last In First Out).
@@ -382,6 +449,10 @@ first();
 ---
 
 ## 10. Closures
+
+**Definition:** A closure is a function that has access to variables from its outer (parent) scope even after the parent function has finished executing and returned.
+
+**Exp:** Closure matlab ek function jo apne parent function ke variables ko yaad rakhta hai, even jab parent function khatam ho gaya ho. Jaise ek bachha jo ghar chod kar bhi ghar ki yaadein rakhta hai.
 
 **Theory:**
 A closure is a function that has access to variables in its outer (parent) function scope, even after the parent function has returned.
@@ -437,6 +508,10 @@ console.log(counter.getCount());  // 1
 
 ## 11. this Keyword
 
+**Definition:** The 'this' keyword refers to the object that is currently executing or calling the function. Its value depends on how the function is called, not where it is defined.
+
+**Exp:** 'this' matlab 'yeh' - jo object function ko call kar raha hai usko point karta hai. Context ke hisaab se change hota rehta hai, jaise aap different jagah 'main' bolte ho to different meaning hota hai.
+
 **Theory:**
 `this` refers to the object that is executing the current function.
 
@@ -486,6 +561,10 @@ boundGreet(); // "Hello, Alice"
 ---
 
 ## 12. Arrow Functions vs Normal Functions
+
+**Definition:** Arrow functions are a concise way to write functions introduced in ES6, using => syntax. They differ from normal functions in terms of 'this' binding, arguments object, and constructor usage.
+
+**Exp:** Arrow functions (=>) short way hai function likhne ka. Normal functions se different hai kyuki 'this' parent se inherit karta hai aur 'new' keyword se call nahi kar sakte.
 
 **Theory:**
 Key differences:
@@ -545,6 +624,10 @@ numbers.forEach(() => {
 ---
 
 ## 13. IIFE (Immediately Invoked Function Expression)
+
+**Definition:** IIFE is a function that is executed immediately after it is defined. It's a design pattern used to create private scope and avoid polluting the global namespace.
+
+**Exp:** IIFE matlab function banana aur turant chala dena. Isse private variables bana sakte hain jo bahar se access nahi ho sakte. Jaise ek secret room banaya aur immediately use kar liya.
 
 **Theory:**
 IIFE is a function that runs as soon as it is defined. Used to create private scope.
@@ -607,6 +690,10 @@ myModule.publicMethod(); // "I'm private"
 ---
 
 ## 14. Higher Order Functions
+
+**Definition:** Higher Order Functions are functions that either take one or more functions as arguments, return a function as their result, or both. They enable functional programming paradigms.
+
+**Exp:** Higher order functions matlab functions jo doosre functions ke saath kaam karte hain. Ya to functions ko input mein lete hain ya function return karte hain. Jaise map(), filter() - yeh sab higher order functions hain.
 
 **Theory:**
 Higher Order Functions are functions that either:
@@ -727,6 +814,10 @@ console.log(result); // [4, 16, 36] (squares of even numbers)
 
 ## 15. Arrays
 
+**Definition:** Arrays are ordered collections of elements (values) that can store multiple items in a single variable. Each element has an index starting from 0.
+
+**Exp:** Arrays matlab ek list hai jisme multiple values store kar sakte hain. Jaise ek shopping list - har item ka number (index) hota hai 0 se start hoke.
+
 **Theory:**
 Arrays are ordered collections of values.
 
@@ -775,6 +866,10 @@ const arr5 = [...arr4, 4, 5]; // [1, 2, 3, 4, 5]
 ---
 
 ## 16. map, filter, reduce
+
+**Definition:** These are higher-order array methods used for data transformation. map() transforms each element, filter() selects elements based on conditions, and reduce() combines all elements into a single value.
+
+**Exp:** Yeh teen array ke superpowers hain - map() har element ko transform karta hai, filter() condition ke hisaab se elements choose karta hai, reduce() sab elements ko combine karke ek value banata hai.
 
 **Theory:**
 Higher-order array methods for transforming and processing data.
@@ -828,6 +923,10 @@ console.log(count); // { apple: 2, banana: 2, orange: 1 }
 ---
 
 ## 17. Objects
+
+**Definition:** Objects are collections of key-value pairs where keys are strings (or Symbols) and values can be any data type. They represent real-world entities with properties and methods.
+
+**Exp:** Objects matlab real life ki cheezein represent karte hain. Jaise ek person object - uske properties hain (name, age) aur methods hain (walk, talk). Key-value pairs mein data store karte hain.
 
 **Theory:**
 Objects are collections of key-value pairs.
@@ -893,6 +992,10 @@ console.log(name, age);
 ---
 
 ## 18. Shallow vs Deep Copy
+
+**Definition:** Shallow copy creates a new object but nested objects are still referenced from the original. Deep copy creates a completely independent copy with all nested objects also copied.
+
+**Exp:** Shallow copy matlab sirf upar wala layer copy karna, andar ke references same rehte hain. Deep copy matlab poora object copy karna, andar tak. Jaise photocopy vs original document ka duplicate banana.
 
 **Theory:**
 - Shallow copy: Copies only the first level, nested objects are still referenced
@@ -977,6 +1080,10 @@ const deepCopy3 = structuredClone(original3);
 
 ## 19. DOM (Document Object Model)
 
+**Definition:** DOM is a programming interface for HTML documents. It represents the page structure as a tree of objects that can be manipulated using JavaScript.
+
+**Exp:** DOM matlab HTML page ko JavaScript ke through control karna. Jaise TV remote se TV control karte hain, waise hi DOM se webpage ke elements ko change kar sakte hain.
+
 **Theory:**
 DOM is a programming interface for HTML documents. It represents the page as a tree structure.
 
@@ -1033,6 +1140,10 @@ const prevSibling = el1.previousElementSibling;
 ---
 
 ## 20. Event Handling
+
+**Definition:** Event handling is the process of capturing and responding to user interactions or browser actions (like clicks, key presses, form submissions) using JavaScript functions.
+
+**Exp:** Event handling matlab user ke actions (click, type, etc.) ko sunna aur unpe reaction dena. Jaise doorbell bajne pe darwaza kholna - event hai bell bajana, handling hai darwaza kholna.
 
 **Theory:**
 Events are actions that happen in the browser (clicks, key presses, etc.).
@@ -1108,6 +1219,10 @@ form.addEventListener("submit", (e) => {
 
 ## 21. Event Bubbling
 
+**Definition:** Event bubbling is the process where an event starts from the target element and propagates upward through its parent elements to the root of the DOM tree.
+
+**Exp:** Event bubbling matlab event neeche se upar ki taraf jaata hai. Jaise paani mein bubble upar aata hai. Child element se parent elements tak event pahunchta hai.
+
 **Theory:**
 Event bubbling is when an event starts from the target element and bubbles up to the root.
 
@@ -1155,6 +1270,10 @@ btn.addEventListener("click", (e) => {
 ---
 
 ## 22. Event Capturing
+
+**Definition:** Event capturing (also called trickling) is the process where an event starts from the root element and propagates downward to the target element, opposite of bubbling.
+
+**Exp:** Event capturing matlab event upar se neeche ki taraf jaata hai - bubbling ka opposite. Root se target element tak event travel karta hai, jaise paani upar se neeche girta hai.
 
 **Theory:**
 Event capturing is the opposite of bubbling - event goes from root to target element.
@@ -1204,6 +1323,10 @@ btn.addEventListener("click", () => {
 ---
 
 ## 23. Event Delegation
+
+**Definition:** Event delegation is a technique where you attach a single event listener to a parent element to handle events from multiple child elements, taking advantage of event bubbling.
+
+**Exp:** Event delegation matlab ek parent element pe event listener lagana aur usse sab children ke events handle karna. Jaise ek manager jo puri team ki responsibility leta hai individual members ke bajaye.
 
 **Theory:**
 Event delegation uses bubbling to handle events at a higher level instead of adding listeners to each child element.
@@ -1270,6 +1393,10 @@ todoList.addEventListener("click", (e) => {
 ---
 
 ## 24. Callbacks
+
+**Definition:** A callback is a function that is passed as an argument to another function and is executed after (or during) the execution of that function. It allows asynchronous programming.
+
+**Exp:** Callback matlab ek function ko doosre function ke andar pass karna taaki baad mein execute ho. Jaise restaurant mein order deke phone number dena - jab ready ho jayega to call kar denge (callback).
 
 **Theory:**
 A callback is a function passed as an argument to another function, to be executed later.
@@ -1343,6 +1470,10 @@ const doubled = numbers.map((num) => num * 2);
 ---
 
 ## 25. Promises
+
+**Definition:** Promises represent the eventual completion (or failure) of an asynchronous operation and its resulting value. They provide a cleaner alternative to callbacks for handling async operations.
+
+**Exp:** Promise matlab kisi kaam ka wada jo abhi complete nahi hua hai but future mein hoga. Teen states hain - pending (intezaar), fulfilled (ho gaya), rejected (fail ho gaya). Callback hell se bachne ke liye use karte hain.
 
 **Theory:**
 Promises represent eventual completion (or failure) of an asynchronous operation.
@@ -1443,6 +1574,10 @@ Promise.any([p1, p2, p3]).then((value) => {
 
 ## 26. async / await
 
+**Definition:** async/await is syntactic sugar built on top of Promises that allows writing asynchronous code in a synchronous-like manner, making it more readable and easier to understand.
+
+**Exp:** async/await matlab asynchronous code ko synchronous jaisa likhna. await lagane se function ruk jata hai jab tak Promise resolve nahi hota. Promises se bhi easy hai samajhne mein.
+
 **Theory:**
 async/await is syntactic sugar over Promises, making asynchronous code look synchronous.
 
@@ -1534,6 +1669,10 @@ async function getUserPosts() {
 ---
 
 ## 27. Event Loop
+
+**Definition:** The Event Loop is a mechanism that allows JavaScript to perform asynchronous operations despite being single-threaded. It continuously monitors the call stack and task queues to execute code.
+
+**Exp:** Event Loop JavaScript ka traffic police hai jo decide karta hai ki kaunsa code kab chalega. Single thread mein async operations possible banata hai. Call stack, microtasks aur macrotasks ka order maintain karta hai.
 
 **Theory:**
 The event loop is how JavaScript handles asynchronous operations in a single-threaded environment.
@@ -2103,6 +2242,10 @@ try {
 
 ## 32. JavaScript Quirks
 
+**Definition:** JavaScript quirks are unusual, unexpected, or counterintuitive behaviors and edge cases in the language that can lead to bugs if not properly understood by developers.
+
+**Exp:** JavaScript ki weird aur unexpected behaviors jo beginners ko confuse karti hain. Jaise typeof null 'object' deta hai, ya NaN !== NaN. Yeh sab samajhna zaroori hai interviews ke liye.
+
 **Theory:**
 JavaScript has some unusual behaviors that can be surprising.
 
@@ -2219,6 +2362,2030 @@ delete arr2[1];
 console.log(arr2);  // [1, empty, 3]
 console.log(arr2.length);  // 3 (length unchanged!)
 ```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 33. Call, Apply & Bind
+
+**Definition:** These are methods that allow you to explicitly set the value of 'this' in a function and control how functions are invoked with specific contexts and arguments.
+
+**Exp:** Yeh teen methods hain jo 'this' ko control karne ke liye use karte hain. call() aur apply() function ko turant call karte hain specific context ke saath, bind() ek naya function return karta hai. Jaise remote control se TV channels change karna.
+
+**Theory:**
+These methods allow you to explicitly set the value of `this` in a function.
+- **call()**: Calls function with specific `this` and individual arguments
+- **apply()**: Same as call but arguments passed as array
+- **bind()**: Returns new function with bound `this` (doesn't call immediately)
+
+**Exp:** Think of them as ways to "borrow" methods from other objects or control what `this` refers to.
+
+```javascript
+const person1 = { name: "Alice", age: 25 };
+const person2 = { name: "Bob", age: 30 };
+
+function introduce(job, hobby) {
+  return `Hi! I'm ${this.name}, ${this.age} years old. I work as ${job} and love ${hobby}.`;
+}
+
+// CALL - arguments passed individually
+console.log(introduce.call(person1, "Developer", "coding"));
+// "Hi! I'm Alice, 25 years old. I work as Developer and love coding."
+
+// APPLY - arguments passed as array
+console.log(introduce.apply(person2, ["Designer", "painting"]));
+// "Hi! I'm Bob, 30 years old. I work as Designer and love painting."
+
+// BIND - returns new function with bound 'this'
+const aliceIntro = introduce.bind(person1);
+console.log(aliceIntro("Teacher", "reading"));
+// "Hi! I'm Alice, 25 years old. I work as Teacher and love reading."
+
+// Practical use case: Method borrowing
+const numbers = [5, 6, 2, 3, 7];
+console.log(Math.max.apply(null, numbers)); // 7
+// Modern way: Math.max(...numbers)
+
+// Event handler binding
+class Counter {
+  constructor() {
+    this.count = 0;
+    // Without bind, 'this' would refer to button, not Counter
+    this.button = document.getElementById('btn');
+    this.button.addEventListener('click', this.increment.bind(this));
+  }
+  
+  increment() {
+    this.count++;
+    console.log(`Count: ${this.count}`);
+  }
+}
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 34. Prototype & Inheritance
+
+**Definition:** Prototype is a mechanism by which JavaScript objects inherit features from one another. Every object has a prototype property that points to another object, creating a prototype chain for inheritance.
+
+**Exp:** Prototype JavaScript mein inheritance ka tarika hai. Har object ke paas ek prototype hota hai jo parent ki tarah kaam karta hai. Properties aur methods prototype chain ke through inherit hote hain. Jaise family tree - bachhe parents se properties inherit karte hain.
+
+**Theory:**
+Every JavaScript object has a prototype. Prototype is like a template that objects inherit properties and methods from. It's JavaScript's way of implementing inheritance.
+
+**Exp:** Think of prototype as a "parent" that shares its properties with its "children". When you look for a property on an object, JavaScript first checks the object itself, then its prototype, then its prototype's prototype, and so on (prototype chain).
+
+```javascript
+// Constructor function
+function Animal(name, species) {
+  this.name = name;
+  this.species = species;
+}
+
+// Add methods to prototype (shared by all instances)
+Animal.prototype.speak = function() {
+  return `${this.name} the ${this.species} makes a sound`;
+};
+
+Animal.prototype.eat = function(food) {
+  return `${this.name} is eating ${food}`;
+};
+
+// Create instances
+const lion = new Animal("Simba", "Lion");
+const elephant = new Animal("Dumbo", "Elephant");
+
+console.log(lion.speak()); // "Simba the Lion makes a sound"
+console.log(elephant.eat("grass")); // "Dumbo is eating grass"
+
+// Inheritance
+function Dog(name, breed) {
+  Animal.call(this, name, "Dog"); // Call parent constructor
+  this.breed = breed;
+}
+
+// Set up inheritance
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+
+// Override parent method
+Dog.prototype.speak = function() {
+  return `${this.name} the ${this.breed} barks: Woof!`;
+};
+
+// Add new method
+Dog.prototype.wagTail = function() {
+  return `${this.name} is wagging tail!`;
+};
+
+const myDog = new Dog("Buddy", "Golden Retriever");
+console.log(myDog.speak());   // "Buddy the Golden Retriever barks: Woof!"
+console.log(myDog.eat("bone")); // "Buddy is eating bone" (inherited from Animal)
+
+// Prototype chain
+console.log(myDog.__proto__ === Dog.prototype);           // true
+console.log(Dog.prototype.__proto__ === Animal.prototype); // true
+console.log(Animal.prototype.__proto__ === Object.prototype); // true
+
+// ES6 Classes (syntactic sugar over prototypes)
+class Vehicle {
+  constructor(make, model) {
+    this.make = make;
+    this.model = model;
+  }
+  
+  start() {
+    return `${this.make} ${this.model} is starting`;
+  }
+}
+
+class Car extends Vehicle {
+  constructor(make, model, doors) {
+    super(make, model); // Call parent constructor
+    this.doors = doors;
+  }
+  
+  honk() {
+    return `${this.make} ${this.model}: BEEP BEEP!`;
+  }
+}
+
+const myCar = new Car("Toyota", "Camry", 4);
+console.log(myCar.start()); // "Toyota Camry is starting"
+console.log(myCar.honk());  // "Toyota Camry: BEEP BEEP!"
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 35. null vs undefined
+
+**Definition:** Both represent absence of value but in different ways. undefined means a variable has been declared but not assigned a value, while null is an intentional assignment representing "no value" or "empty".
+
+**Exp:** Dono 'kuch nahi' mean karte hain but different context mein. undefined matlab JavaScript khud set karta hai jab koi value assign nahi ki gayi, null matlab programmer intentionally 'empty' set karta hai. Jaise undefined = 'pata nahi', null = 'jaan bujhke khali rakha'.
+
+**Theory:**
+- **undefined**: Variable declared but not assigned, or property that doesn't exist
+- **null**: Intentional absence of value, must be explicitly assigned
+
+- `undefined` = "I don't know what this is" (JavaScript's default)
+- `null` = "I know this should be empty" (programmer's intention)
+
+```javascript
+// undefined examples
+let a;
+console.log(a); // undefined (declared but not assigned)
+
+const obj = { name: "John" };
+console.log(obj.age); // undefined (property doesn't exist)
+
+function test() {}
+console.log(test()); // undefined (no return value)
+
+function greet(name) {
+  console.log(name); // undefined if no argument passed
+}
+greet(); // undefined
+
+// null examples
+let b = null; // Intentionally set to null
+console.log(b); // null
+
+const user = {
+  name: "Alice",
+  avatar: null // Explicitly no avatar
+};
+
+// Type checking
+console.log(typeof undefined); // "undefined"
+console.log(typeof null);      // "object" (this is a known bug in JavaScript!)
+
+// Comparison
+console.log(null == undefined);  // true (loose equality)
+console.log(null === undefined); // false (strict equality)
+
+// Practical usage
+// Use null when you want to explicitly indicate "no value"
+const getUserAvatar = (userId) => {
+  const user = findUser(userId);
+  return user ? user.avatar : null; // null indicates no avatar found
+};
+
+// undefined is usually JavaScript's default
+let config = {};
+console.log(config.theme); // undefined (property not set)
+
+// Checking for both
+function isNullOrUndefined(value) {
+  return value == null; // This checks for both null and undefined
+}
+
+// Or more explicit
+function isNullOrUndefined2(value) {
+  return value === null || value === undefined;
+}
+
+// Default values
+function greetUser(name) {
+  name = name || "Guest"; // If name is null, undefined, or falsy
+  console.log(`Hello, ${name}!`);
+}
+
+// Modern way with nullish coalescing
+function greetUser2(name) {
+  name = name ?? "Guest"; // Only if name is null or undefined
+  console.log(`Hello, ${name}!`);
+}
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 36. Debounce vs Throttle
+
+**Definition:** Both are techniques to limit the frequency of function execution. Debounce delays execution until after a pause in activity, while throttle limits execution to once per specified time period.
+
+**Exp:** Dono function calls ko control karne ke tarike hain. Debounce matlab 'ruk jao jab tak activity band na ho jaye', throttle matlab 'time pe time execute karo'. Jaise debounce = lift door (wait karta hai), throttle = traffic signal (fixed time pe change).
+
+**Theory:**
+Both are techniques to limit how often a function is called, but they work differently:
+- **Debounce**: Delays execution until after a pause in activity
+- **Throttle**: Limits execution to once per time period
+
+- **Debounce**: Like waiting for someone to stop knocking before answering the door
+- **Throttle**: Like answering the door at most once per minute, no matter how much knocking
+
+```javascript
+// DEBOUNCE - waits for pause in activity
+function debounce(func, delay) {
+  let timeoutId;
+  
+  return function(...args) {
+    // Clear previous timeout
+    clearTimeout(timeoutId);
+    
+    // Set new timeout
+    timeoutId = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+}
+
+// Usage: Search as user types
+const searchInput = document.getElementById('search');
+const debouncedSearch = debounce((query) => {
+  console.log(`Searching for: ${query}`);
+  // API call here
+}, 300);
+
+searchInput.addEventListener('input', (e) => {
+  debouncedSearch(e.target.value);
+});
+// Only searches 300ms after user stops typing
+
+// THROTTLE - limits frequency
+function throttle(func, delay) {
+  let lastCall = 0;
+  
+  return function(...args) {
+    const now = new Date().getTime();
+    
+    if (now - lastCall >= delay) {
+      lastCall = now;
+      func.apply(this, args);
+    }
+  };
+}
+
+// Usage: Scroll event handling
+const throttledScroll = throttle(() => {
+  console.log('Scroll event handled');
+  // Update navbar, lazy load images, etc.
+}, 100);
+
+window.addEventListener('scroll', throttledScroll);
+// Runs at most once every 100ms during scrolling
+
+// Advanced throttle with trailing call
+function throttleAdvanced(func, delay) {
+  let lastCall = 0;
+  let timeoutId;
+  
+  return function(...args) {
+    const now = new Date().getTime();
+    
+    if (now - lastCall >= delay) {
+      lastCall = now;
+      func.apply(this, args);
+    } else {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        lastCall = new Date().getTime();
+        func.apply(this, args);
+      }, delay - (now - lastCall));
+    }
+  };
+}
+
+// Real-world examples
+
+// Debounce: Form validation
+const validateEmail = debounce((email) => {
+  if (email.includes('@')) {
+    console.log('Email is valid');
+  } else {
+    console.log('Email is invalid');
+  }
+}, 500);
+
+// Throttle: Button clicks to prevent double submission
+const handleSubmit = throttle(() => {
+  console.log('Form submitted');
+  // Submit form logic
+}, 2000);
+
+// Throttle: API calls for autocomplete
+const fetchSuggestions = throttle((query) => {
+  fetch(`/api/suggestions?q=${query}`)
+    .then(response => response.json())
+    .then(data => {
+      console.log('Suggestions:', data);
+    });
+}, 300);
+
+// When to use what:
+// Debounce: Search, form validation, window resize
+// Throttle: Scroll events, mouse movement, API rate limiting
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 37. Memory Leaks in JavaScript
+
+**Definition:** Memory leak occurs when a program allocates memory but fails to release it back to the system, causing the application to use increasingly more memory over time, potentially leading to performance issues or crashes.
+
+**Exp:** Memory leak matlab app memory use karta rehta hai but wapas nahi karta. Jaise ghar mein saman ikattha karte rehna but kabhi safai nahi karna. Performance slow ho jati hai aur eventually crash ho sakta hai. Event listeners, timers aur references clean up karna zaroori hai.
+
+**Theory:**
+Memory leak occurs when your application keeps references to objects that are no longer needed, preventing garbage collector from freeing up memory.
+
+**Exp:** Like keeping boxes in your room that you'll never use again - they take up space unnecessarily. In JavaScript, this happens when you forget to clean up event listeners, timers, or object references.
+
+```javascript
+// COMMON CAUSES OF MEMORY LEAKS
+
+// 1. Forgotten timers
+function memoryLeakTimer() {
+  const data = new Array(1000000).fill('some data');
+  
+  setInterval(() => {
+    // This keeps 'data' in memory forever
+    console.log('Timer running');
+  }, 1000);
+  
+  // FIX: Clear the timer
+  // const timerId = setInterval(...);
+  // clearInterval(timerId);
+}
+
+// 2. Event listeners not removed
+function memoryLeakListener() {
+  const button = document.getElementById('myButton');
+  const largeData = new Array(1000000).fill('data');
+  
+  function handleClick() {
+    console.log('Button clicked', largeData.length);
+  }
+  
+  button.addEventListener('click', handleClick);
+  
+  // If button is removed from DOM but listener isn't removed,
+  // both button and largeData stay in memory
+  
+  // FIX: Remove listener when done
+  // button.removeEventListener('click', handleClick);
+}
+
+// 3. Closures keeping references
+function memoryLeakClosure() {
+  const largeArray = new Array(1000000).fill('data');
+  
+  return function() {
+    // Even if we don't use largeArray here,
+    // closure keeps reference to it
+    console.log('Function called');
+  };
+}
+
+const leakyFunction = memoryLeakClosure();
+// largeArray stays in memory as long as leakyFunction exists
+
+// 4. Global variables
+function memoryLeakGlobal() {
+  // Accidentally creating global variable
+  globalData = new Array(1000000).fill('data'); // No 'var', 'let', or 'const'
+  
+  // Global variables are never garbage collected
+}
+
+// 5. Detached DOM nodes
+function memoryLeakDOM() {
+  const parent = document.getElementById('parent');
+  const child = document.createElement('div');
+  
+  parent.appendChild(child);
+  
+  // Keep reference to child
+  window.childReference = child;
+  
+  // Remove parent from DOM
+  parent.remove();
+  
+  // child and parent are still in memory due to reference
+  // FIX: window.childReference = null;
+}
+
+// 6. Circular references (less common in modern JS)
+function memoryLeakCircular() {
+  const obj1 = {};
+  const obj2 = {};
+  
+  obj1.ref = obj2;
+  obj2.ref = obj1;
+  
+  // In old browsers, this could cause memory leaks
+  // Modern garbage collectors handle this
+}
+
+// HOW TO PREVENT MEMORY LEAKS
+
+// 1. Clean up timers
+class Component {
+  constructor() {
+    this.timerId = setInterval(() => {
+      this.update();
+    }, 1000);
+  }
+  
+  destroy() {
+    clearInterval(this.timerId); // Always clean up!
+  }
+  
+  update() {
+    console.log('Component updated');
+  }
+}
+
+// 2. Remove event listeners
+class EventComponent {
+  constructor() {
+    this.handleClick = this.handleClick.bind(this);
+    document.addEventListener('click', this.handleClick);
+  }
+  
+  destroy() {
+    document.removeEventListener('click', this.handleClick);
+  }
+  
+  handleClick() {
+    console.log('Clicked');
+  }
+}
+
+// 3. WeakMap for object associations (doesn't prevent garbage collection)
+const metadata = new WeakMap();
+
+function setMetadata(object, meta) {
+  metadata.set(object, meta);
+}
+
+function getMetadata(object) {
+  return metadata.get(object);
+}
+
+// When object is garbage collected, its entry in WeakMap is too
+
+// 4. Null references when done
+let expensiveObject = createExpensiveObject();
+// Use the object...
+expensiveObject = null; // Release reference
+
+// 5. Use AbortController for fetch requests
+async function fetchWithCleanup() {
+  const controller = new AbortController();
+  
+  try {
+    const response = await fetch('/api/data', {
+      signal: controller.signal
+    });
+    return await response.json();
+  } catch (error) {
+    if (error.name === 'AbortError') {
+      console.log('Request aborted');
+    }
+  }
+  
+  // Can abort if component unmounts
+  // controller.abort();
+}
+
+// DETECTING MEMORY LEAKS
+
+// 1. Chrome DevTools Memory tab
+// 2. Performance.measureUserAgentSpecificMemory() API
+// 3. Monitor heap size
+if ('memory' in performance) {
+  console.log('Used JS heap:', performance.memory.usedJSHeapSize);
+  console.log('Total JS heap:', performance.memory.totalJSHeapSize);
+}
+
+// 4. Simple memory monitoring
+function monitorMemory() {
+  if (performance.memory) {
+    const used = Math.round(performance.memory.usedJSHeapSize / 1048576);
+    const total = Math.round(performance.memory.totalJSHeapSize / 1048576);
+    console.log(`Memory: ${used}MB / ${total}MB`);
+  }
+}
+
+setInterval(monitorMemory, 5000);
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 38. How async/await works internally
+
+**Definition:** async/await is syntactic sugar over Promises that uses JavaScript's event loop mechanism. When await is encountered, the function execution is paused, control returns to the event loop, and resumes when the Promise resolves.
+
+**Exp:** async/await internally Promises ka use karta hai. await lagane pe function pause ho jata hai, event loop doosre kaam karta rehta hai, jab Promise resolve hota hai to function wahi se continue hota hai. Jaise video pause karna aur baad mein wahi se play karna.
+
+**Theory:**
+Async/await is syntactic sugar over Promises. When you use `await`, JavaScript pauses the function execution, puts it aside, and continues with other tasks. When the awaited Promise resolves, the function resumes from where it left off.
+
+**Exp:** Think of it like waiting in line at a restaurant - you give your order (start async function), then sit down (await), the kitchen works on your order (Promise processing), and when it's ready, they call your name (Promise resolves) and you continue eating (function resumes).
+
+```javascript
+// What happens under the hood
+
+// This async/await code:
+async function fetchData() {
+  console.log('1. Starting');
+  const result = await fetch('/api/data');
+  console.log('3. Got result');
+  return result.json();
+}
+
+// Is equivalent to this Promise code:
+function fetchDataPromise() {
+  console.log('1. Starting');
+  return fetch('/api/data')
+    .then(result => {
+      console.log('3. Got result');
+      return result.json();
+    });
+}
+
+// Step-by-step execution
+async function stepByStep() {
+  console.log('Step 1: Function starts');
+  
+  // When await is hit:
+  // 1. Expression is evaluated (Promise created)
+  // 2. Function is suspended
+  // 3. Control returns to caller
+  // 4. Event loop continues with other tasks
+  const data = await new Promise(resolve => {
+    console.log('Step 2: Promise created, function suspended');
+    setTimeout(() => {
+      console.log('Step 4: Promise resolving');
+      resolve('data');
+    }, 1000);
+  });
+  
+  // When Promise resolves:
+  // 1. Function resumes from this point
+  // 2. 'data' gets the resolved value
+  console.log('Step 5: Function resumed with:', data);
+  return data;
+}
+
+console.log('Step 0: Before calling async function');
+stepByStep().then(result => {
+  console.log('Step 6: Final result:', result);
+});
+console.log('Step 3: After calling async function (continues immediately)');
+
+// Output:
+// Step 0: Before calling async function
+// Step 1: Function starts
+// Step 2: Promise created, function suspended
+// Step 3: After calling async function (continues immediately)
+// Step 4: Promise resolving
+// Step 5: Function resumed with: data
+// Step 6: Final result: data
+
+// Error handling transformation
+
+// This async/await:
+async function withErrorHandling() {
+  try {
+    const result = await riskyOperation();
+    return result;
+  } catch (error) {
+    console.log('Error:', error.message);
+    throw error;
+  }
+}
+
+// Becomes this Promise code:
+function withErrorHandlingPromise() {
+  return riskyOperation()
+    .then(result => {
+      return result;
+    })
+    .catch(error => {
+      console.log('Error:', error.message);
+      throw error;
+    });
+}
+
+// Multiple awaits
+async function multipleAwaits() {
+  console.log('Start');
+  
+  // Each await suspends the function
+  const user = await fetchUser();
+  console.log('Got user:', user.name);
+  
+  const posts = await fetchPosts(user.id);
+  console.log('Got posts:', posts.length);
+  
+  const comments = await fetchComments(posts[0].id);
+  console.log('Got comments:', comments.length);
+  
+  return { user, posts, comments };
+}
+
+// This runs sequentially - each await waits for the previous one
+
+// For parallel execution:
+async function parallelExecution() {
+  console.log('Start parallel');
+  
+  // Start all operations at once (don't await yet)
+  const userPromise = fetchUser();
+  const settingsPromise = fetchSettings();
+  const notificationsPromise = fetchNotifications();
+  
+  // Now await all of them
+  const user = await userPromise;
+  const settings = await settingsPromise;
+  const notifications = await notificationsPromise;
+  
+  // Or use Promise.all for cleaner syntax:
+  // const [user, settings, notifications] = await Promise.all([
+  //   fetchUser(),
+  //   fetchSettings(),
+  //   fetchNotifications()
+  // ]);
+  
+  return { user, settings, notifications };
+}
+
+// Async function always returns a Promise
+async function alwaysReturnsPromise() {
+  return 'hello'; // This becomes Promise.resolve('hello')
+}
+
+console.log(alwaysReturnsPromise()); // Promise {<fulfilled>: 'hello'}
+
+// Even if you don't return anything
+async function noReturn() {
+  console.log('doing something');
+  // Implicitly returns Promise.resolve(undefined)
+}
+
+// Async generators (advanced)
+async function* asyncGenerator() {
+  yield await Promise.resolve(1);
+  yield await Promise.resolve(2);
+  yield await Promise.resolve(3);
+}
+
+async function useAsyncGenerator() {
+  for await (const value of asyncGenerator()) {
+    console.log(value); // 1, 2, 3 (with delays)
+  }
+}
+
+// Common pitfalls
+
+// ❌ Forgetting await
+async function forgotAwait() {
+  const result = fetch('/api/data'); // This is a Promise, not the data!
+  console.log(result); // [object Promise]
+  return result;
+}
+
+// ✅ Correct usage
+async function correctAwait() {
+  const result = await fetch('/api/data');
+  console.log(result); // Response object
+  return result;
+}
+
+// ❌ Using await in loop incorrectly (sequential)
+async function sequentialLoop(urls) {
+  const results = [];
+  for (const url of urls) {
+    const result = await fetch(url); // Waits for each one
+    results.push(result);
+  }
+  return results;
+}
+
+// ✅ Parallel processing
+async function parallelLoop(urls) {
+  const promises = urls.map(url => fetch(url));
+  return await Promise.all(promises);
+}
+
+// Real-world example: API service
+class APIService {
+  async fetchUserProfile(userId) {
+    try {
+      // Function suspends here, event loop continues
+      const response = await fetch(`/api/users/${userId}`);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      // Function suspends here again
+      const userData = await response.json();
+      
+      // Both awaits completed, function resumes normally
+      return {
+        user: userData,
+        timestamp: Date.now()
+      };
+      
+    } catch (error) {
+      console.error('Failed to fetch user:', error);
+      throw error; // Re-throw to let caller handle
+    }
+  }
+}
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 39. Event Loop Phases
+
+**Definition:** The Event Loop operates in specific phases that determine the execution order of different types of asynchronous operations, including call stack, microtask queue, and macrotask queue processing.
+
+**Exp:** Event Loop ke specific phases hain jo decide karte hain ki kya kab chalega. Call stack pehle, phir microtasks (Promises), phir macrotasks (setTimeout). Jaise multi-lane highway mein different lanes ki speed limits - priority order maintain karta hai.
+
+**Theory:**
+The event loop has specific phases that determine the order of execution for different types of asynchronous operations. Understanding these phases helps predict the exact order of execution.
+
+**Exp:** Think of it like a multi-lane highway with different speed limits - some lanes (microtasks) always go first, then others (macrotasks) follow in a specific order.
+
+```javascript
+// EVENT LOOP PHASES:
+// 1. Call Stack (synchronous code)
+// 2. Microtask Queue (Promises, queueMicrotask)
+// 3. Macrotask Queue (setTimeout, setInterval, I/O)
+// 4. Render (if needed)
+
+// Detailed execution order
+console.log('1. Synchronous start');
+
+// Macrotasks
+setTimeout(() => console.log('6. setTimeout 0ms'), 0);
+setTimeout(() => console.log('7. setTimeout 10ms'), 10);
+
+// Microtasks
+Promise.resolve().then(() => console.log('3. Promise 1'));
+queueMicrotask(() => console.log('4. queueMicrotask'));
+
+// More microtasks created by microtasks
+Promise.resolve().then(() => {
+  console.log('5. Promise 2');
+  return Promise.resolve();
+}).then(() => console.log('8. Chained Promise'));
+
+console.log('2. Synchronous end');
+
+// Output:
+// 1. Synchronous start
+// 2. Synchronous end
+// 3. Promise 1
+// 4. queueMicrotask
+// 5. Promise 2
+// 8. Chained Promise (microtask created by microtask runs first)
+// 6. setTimeout 0ms
+// 7. setTimeout 10ms
+
+// Complex example showing all phases
+function demonstrateEventLoop() {
+  console.log('=== Event Loop Demo ===');
+  
+  // Synchronous code (runs immediately)
+  console.log('1. Sync start');
+  
+  // Schedule macrotasks
+  setTimeout(() => console.log('7. setTimeout 0'), 0);
+  setImmediate(() => console.log('8. setImmediate')); // Node.js only
+  
+  // Schedule I/O (macrotask)
+  if (typeof process !== 'undefined') {
+    process.nextTick(() => console.log('3. process.nextTick')); // Node.js - highest priority microtask
+  }
+  
+  // Schedule microtasks
+  Promise.resolve().then(() => {
+    console.log('4. Promise 1');
+    
+    // Microtask inside microtask
+    Promise.resolve().then(() => console.log('5. Nested Promise'));
+    queueMicrotask(() => console.log('6. Nested queueMicrotask'));
+  });
+  
+  queueMicrotask(() => console.log('2. queueMicrotask'));
+  
+  console.log('0. Sync end');
+}
+
+// Advanced: Mixing async/await with event loop
+async function mixedAsync() {
+  console.log('A1. Async function start');
+  
+  setTimeout(() => console.log('D. setTimeout in async'), 0);
+  
+  await Promise.resolve();
+  console.log('B. After first await');
+  
+  await new Promise(resolve => {
+    console.log('C1. In Promise executor');
+    resolve();
+  });
+  console.log('C2. After second await');
+  
+  return 'async done';
+}
+
+console.log('Start');
+mixedAsync().then(result => console.log('E.', result));
+console.log('End');
+
+// Output:
+// Start
+// A1. Async function start
+// C1. In Promise executor
+// End
+// B. After first await
+// C2. After second await
+// E. async done
+// D. setTimeout in async
+
+// Browser vs Node.js differences
+function browserVsNode() {
+  console.log('1. Start');
+  
+  setTimeout(() => console.log('4. setTimeout'), 0);
+  
+  if (typeof process !== 'undefined') {
+    // Node.js only
+    process.nextTick(() => console.log('2. process.nextTick'));
+    setImmediate(() => console.log('5. setImmediate'));
+  }
+  
+  Promise.resolve().then(() => console.log('3. Promise'));
+  
+  console.log('1. End');
+  
+  // Browser output: Start, End, Promise, setTimeout
+  // Node.js output: Start, End, process.nextTick, Promise, setTimeout, setImmediate
+}
+
+// Practical implications
+
+// Problem: UI blocking
+function blockingOperation() {
+  console.log('Starting blocking operation');
+  
+  // This blocks the event loop
+  const start = Date.now();
+  while (Date.now() - start < 2000) {
+    // Blocking for 2 seconds
+  }
+  
+  console.log('Blocking operation done');
+}
+
+// Solution: Break work into chunks
+function nonBlockingOperation() {
+  let count = 0;
+  const total = 1000000;
+  
+  function processChunk() {
+    const chunkSize = 10000;
+    const end = Math.min(count + chunkSize, total);
+    
+    while (count < end) {
+      // Do some work
+      count++;
+    }
+    
+    if (count < total) {
+      // Use setTimeout to yield control back to event loop
+      setTimeout(processChunk, 0);
+    } else {
+      console.log('Non-blocking operation done');
+    }
+  }
+  
+  processChunk();
+}
+
+// Understanding microtask queue exhaustion
+function microtaskExhaustion() {
+  console.log('1. Start');
+  
+  setTimeout(() => console.log('3. setTimeout'), 0);
+  
+  function createMicrotask(n) {
+    if (n > 0) {
+      Promise.resolve().then(() => {
+        console.log(`2.${n} Microtask`);
+        createMicrotask(n - 1); // Creates another microtask
+      });
+    }
+  }
+  
+  createMicrotask(3);
+  
+  console.log('1. End');
+  
+  // Output:
+  // 1. Start
+  // 1. End
+  // 2.3 Microtask
+  // 2.2 Microtask
+  // 2.1 Microtask
+  // 3. setTimeout (runs after ALL microtasks)
+}
+
+// Performance considerations
+function performanceExample() {
+  // ❌ Bad: Starving the event loop with too many microtasks
+  function tooManyMicrotasks() {
+    Promise.resolve().then(tooManyMicrotasks);
+  }
+  
+  // ✅ Good: Use macrotasks to allow other work
+  function balancedWork() {
+    setTimeout(balancedWork, 0);
+  }
+  
+  // ✅ Better: Use requestAnimationFrame for UI updates
+  function animationWork() {
+    // Do animation work
+    requestAnimationFrame(animationWork);
+  }
+  
+  // ✅ Best: Use requestIdleCallback for non-urgent work
+  function idleWork(deadline) {
+    while (deadline.timeRemaining() > 0) {
+      // Do non-urgent work
+    }
+    requestIdleCallback(idleWork);
+  }
+}
+
+// Debugging event loop issues
+function debugEventLoop() {
+  // Measure task timing
+  function measureTask(name, task) {
+    const start = performance.now();
+    const result = task();
+    const end = performance.now();
+    console.log(`${name} took ${end - start}ms`);
+    return result;
+  }
+  
+  // Detect long-running tasks
+  const observer = new PerformanceObserver((list) => {
+    list.getEntries().forEach((entry) => {
+      if (entry.duration > 50) { // Tasks longer than 50ms
+        console.warn('Long task detected:', entry);
+      }
+    });
+  });
+  
+  if ('observe' in observer) {
+    observer.observe({ entryTypes: ['longtask'] });
+  }
+}
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 40. Module Pattern (IIFE)
+
+**Definition:** Module Pattern uses IIFE to create private scope and expose only selected functionality. It provides encapsulation by keeping internal details hidden while revealing a public API.
+
+**Exp:** Module pattern matlab private aur public members banane ka tarika. IIFE use karke private scope create karte hain jo bahar se access nahi ho sakte.
+
+**Theory:**
+The Module Pattern is one of the most important design patterns in JavaScript. It uses IIFE (Immediately Invoked Function Expression) to create a private scope.
+
+```javascript
+const MyModule = (function() {
+    // Private variables
+    let privateVar = 'I am private';
+    let privateCounter = 0;
+    
+    // Private methods
+    function privateMethod() {
+        console.log('This is private');
+    }
+    
+    // Public API
+    return {
+        publicMethod: function() {
+            console.log('Public method called');
+            privateMethod(); // Can access private
+        },
+        
+        getCounter: function() {
+            return privateCounter;
+        },
+        
+        increment: function() {
+            privateCounter++;
+        }
+    };
+})();
+
+// Usage
+MyModule.publicMethod(); // Works
+// MyModule.privateVar; // undefined - not accessible
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 41. Revealing Module Pattern
+
+**Definition:** An improved version of Module Pattern where all functions are defined first and then selectively exposed at the end, providing better organization and readability.
+
+**Exp:** Normal module pattern ka improved version - sab functions pehle define karte hain, phir end mein jo chaahiye wo reveal karte hain.
+
+**Theory:**
+The Revealing Module Pattern organizes code by defining all functions first and then revealing only what should be public.
+
+```javascript
+const RevealingModule = (function() {
+    let privateVar = 'Hidden';
+    
+    function privateFunction() {
+        console.log(privateVar);
+    }
+    
+    function publicFunction1() {
+        privateFunction();
+    }
+    
+    function publicFunction2() {
+        console.log('Another public function');
+    }
+    
+    // Reveal public pointers to private functions
+    return {
+        method1: publicFunction1,
+        method2: publicFunction2
+    };
+})();
+
+// Usage
+RevealingModule.method1(); // Works
+RevealingModule.method2(); // Works
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 42. Factory Function Pattern
+
+**Definition:** Factory Pattern creates objects without using the 'new' keyword. It's a function that returns new object instances, providing an alternative to constructor functions.
+
+**Exp:** Factory pattern matlab objects banane ka function. Constructor function ka alternative hai jo 'new' keyword ki zaroorat nahi.
+
+**Theory:**
+Factory functions provide a clean way to create objects with private variables and methods.
+
+```javascript
+function createPerson(name, age) {
+    // Private variable (closure)
+    let _id = Math.random().toString(36).substr(2, 9);
+    
+    return {
+        name: name,
+        age: age,
+        greet: function() {
+            console.log(`Hi, I'm ${this.name}`);
+        },
+        getId: function() {
+            return _id; // Access private variable
+        },
+        setAge: function(newAge) {
+            if (newAge > 0 && newAge < 150) {
+                this.age = newAge;
+            }
+        }
+    };
+}
+
+const person1 = createPerson('John', 25);
+const person2 = createPerson('Jane', 30);
+
+person1.greet(); // "Hi, I'm John"
+console.log(person1.getId()); // Returns private ID
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 43. Observer Pattern (Pub-Sub)
+
+**Definition:** Observer Pattern allows objects to subscribe to events and get notified when those events occur. It implements a one-to-many dependency between objects.
+
+**Exp:** Observer pattern matlab event system - jab koi change ho to sab interested parties ko notify kar dena. Jaise newspaper subscription - jab news aaye to sab subscribers ko mil jaye.
+
+**Theory:**
+The Observer Pattern is fundamental for event-driven programming and decoupling components.
+
+```javascript
+class EventEmitter {
+    constructor() {
+        this.events = {};
+    }
+    
+    // Subscribe to event
+    on(event, callback) {
+        if (!this.events[event]) {
+            this.events[event] = [];
+        }
+        this.events[event].push(callback);
+    }
+    
+    // Unsubscribe from event
+    off(event, callback) {
+        if (this.events[event]) {
+            this.events[event] = this.events[event].filter(cb => cb !== callback);
+        }
+    }
+    
+    // Emit event
+    emit(event, data) {
+        if (this.events[event]) {
+            this.events[event].forEach(callback => callback(data));
+        }
+    }
+}
+
+// Usage
+const emitter = new EventEmitter();
+
+const handler1 = (data) => console.log('Handler 1:', data);
+const handler2 = (data) => console.log('Handler 2:', data);
+
+emitter.on('test', handler1);
+emitter.on('test', handler2);
+emitter.emit('test', 'Hello World!');
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 44. Advanced Debouncing & Throttling
+
+**Definition:** Advanced implementations of debouncing and throttling with additional features like immediate execution, leading/trailing edge control, and cancellation capabilities.
+
+**Exp:** Debounce aur throttle ke advanced versions - zyada control aur features ke saath. Jaise immediate execution ya specific timing control.
+
+**Theory:**
+Advanced debouncing and throttling provide more granular control over function execution timing.
+
+```javascript
+// Advanced Debounce with immediate option
+function debounce(func, delay, immediate = false) {
+    let timeoutId;
+    
+    return function executedFunction(...args) {
+        const callNow = immediate && !timeoutId;
+        
+        const later = () => {
+            timeoutId = null;
+            if (!immediate) func.apply(this, args);
+        };
+        
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(later, delay);
+        
+        if (callNow) func.apply(this, args);
+    };
+}
+
+// Advanced Throttle with leading and trailing options
+function throttle(func, limit, options = {}) {
+    let timeout;
+    let previous = 0;
+    
+    return function(...args) {
+        const now = Date.now();
+        
+        if (!previous && options.leading === false) {
+            previous = now;
+        }
+        
+        const remaining = limit - (now - previous);
+        
+        if (remaining <= 0 || remaining > limit) {
+            if (timeout) {
+                clearTimeout(timeout);
+                timeout = null;
+            }
+            previous = now;
+            func.apply(this, args);
+        } else if (!timeout && options.trailing !== false) {
+            timeout = setTimeout(() => {
+                previous = options.leading === false ? 0 : Date.now();
+                timeout = null;
+                func.apply(this, args);
+            }, remaining);
+        }
+    };
+}
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 45. Lazy Loading with IntersectionObserver
+
+**Definition:** Lazy Loading defers loading of resources until they are needed. IntersectionObserver API provides an efficient way to detect when elements enter the viewport.
+
+**Exp:** Lazy loading matlab images ya content ko tab load karna jab wo screen pe aane wale hain. Bandwidth save karta hai aur page fast load karta hai.
+
+**Theory:**
+Lazy loading improves performance by loading resources on demand rather than all at once.
+
+```javascript
+class LazyLoader {
+    constructor(options = {}) {
+        this.options = {
+            root: null,
+            rootMargin: '50px',
+            threshold: 0.1,
+            ...options
+        };
+        
+        this.imageObserver = new IntersectionObserver(
+            this.handleIntersection.bind(this),
+            this.options
+        );
+        
+        this.loadLazyImages();
+    }
+    
+    loadLazyImages() {
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        lazyImages.forEach(img => this.imageObserver.observe(img));
+    }
+    
+    handleIntersection(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                this.loadImage(img);
+                this.imageObserver.unobserve(img);
+            }
+        });
+    }
+    
+    loadImage(img) {
+        const imageLoader = new Image();
+        
+        imageLoader.onload = () => {
+            img.src = img.dataset.src;
+            img.classList.remove('lazy');
+            img.classList.add('loaded');
+        };
+        
+        imageLoader.src = img.dataset.src;
+    }
+}
+
+// Usage
+const lazyLoader = new LazyLoader();
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 46. DOM Optimization Techniques
+
+**Definition:** Techniques to minimize DOM manipulation costs, reduce reflows and repaints, and improve rendering performance through efficient DOM updates.
+
+**Exp:** DOM ko efficiently update karne ke tarike taaki browser ko baar baar redraw na karna pade. Performance improve karne ke advanced methods.
+
+**Theory:**
+DOM operations are expensive. Optimizing them is crucial for performance.
+
+```javascript
+// Bad - Multiple reflows
+function badDOMUpdate() {
+    const element = document.getElementById('myDiv');
+    element.style.width = '200px';   // Reflow
+    element.style.height = '200px';  // Reflow  
+    element.style.background = 'red'; // Repaint
+}
+
+// Good - Batch DOM changes
+function goodDOMUpdate() {
+    const element = document.getElementById('myDiv');
+    element.style.cssText = 'width: 200px; height: 200px; background: red;';
+}
+
+// Document Fragment for multiple additions
+function efficientDOMAddition(items) {
+    const fragment = document.createDocumentFragment();
+    
+    items.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        fragment.appendChild(li);
+    });
+    
+    document.getElementById('list').appendChild(fragment);
+}
+
+// Virtual Scrolling for large lists
+function createVirtualList(container, items, itemHeight, visibleCount) {
+    let startIndex = 0;
+    let endIndex = Math.min(visibleCount, items.length);
+    
+    const renderVisible = () => {
+        container.innerHTML = '';
+        
+        for (let i = startIndex; i < endIndex; i++) {
+            const item = document.createElement('div');
+            item.style.top = `${i * itemHeight}px`;
+            item.textContent = items[i];
+            container.appendChild(item);
+        }
+    };
+    
+    container.addEventListener('scroll', () => {
+        const scrollTop = container.scrollTop;
+        startIndex = Math.floor(scrollTop / itemHeight);
+        endIndex = Math.min(startIndex + visibleCount, items.length);
+        renderVisible();
+    });
+}
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 47. Memory Leak Prevention
+
+**Definition:** Strategies and patterns to prevent memory leaks by properly managing event listeners, timers, closures, and other references that can prevent garbage collection.
+
+**Exp:** Memory leaks ko prevent karne ke tarike - timers, event listeners aur references ko properly clean up karna taaki memory free ho sake.
+
+**Theory:**
+Memory leaks occur when objects can't be garbage collected due to unwanted references.
+
+```javascript
+class ComponentWithCleanup {
+    constructor(element) {
+        this.element = element;
+        this.timers = [];
+        this.listeners = [];
+        this.abortController = new AbortController();
+        
+        this.init();
+    }
+    
+    init() {
+        // Bind methods to preserve context
+        this.handleClick = this.handleClick.bind(this);
+        this.handleResize = this.handleResize.bind(this);
+        
+        // Track event listeners for cleanup
+        this.addEventListener(this.element, 'click', this.handleClick);
+        this.addEventListener(window, 'resize', this.handleResize);
+        
+        // Track timers for cleanup
+        this.setTimer(() => console.log('Timer executed'), 1000);
+        
+        // Use AbortController for fetch requests
+        this.fetchData();
+    }
+    
+    addEventListener(element, event, handler) {
+        element.addEventListener(event, handler);
+        this.listeners.push({ element, event, handler });
+    }
+    
+    setTimer(callback, delay) {
+        const timerId = setTimeout(callback, delay);
+        this.timers.push(timerId);
+        return timerId;
+    }
+    
+    async fetchData() {
+        try {
+            const response = await fetch('/api/data', {
+                signal: this.abortController.signal
+            });
+            // Handle response
+        } catch (error) {
+            if (error.name !== 'AbortError') {
+                console.error('Fetch error:', error);
+            }
+        }
+    }
+    
+    // CRUCIAL: Cleanup method
+    destroy() {
+        // Clear all timers
+        this.timers.forEach(id => clearTimeout(id));
+        this.timers = [];
+        
+        // Remove all event listeners
+        this.listeners.forEach(({ element, event, handler }) => {
+            element.removeEventListener(event, handler);
+        });
+        this.listeners = [];
+        
+        // Abort fetch requests
+        this.abortController.abort();
+        
+        // Clear references
+        this.element = null;
+    }
+}
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 48. Pure vs Impure Functions
+
+**Definition:** Pure functions always return the same output for the same input and have no side effects. Impure functions may produce different outputs or cause side effects.
+
+**Exp:** Pure functions predictable hote hain - same input se same output, koi side effects nahi. Impure functions unpredictable ho sakte hain ya side effects kar sakte hain.
+
+**Theory:**
+Understanding pure vs impure functions is crucial for functional programming and debugging.
+
+```javascript
+// Pure Functions
+const pureFunctions = {
+    add: (a, b) => a + b,
+    multiply: (x, y) => x * y,
+    
+    // Doesn't modify original array
+    addToArray: (arr, item) => [...arr, item],
+    
+    // Same input always gives same output
+    calculateArea: (radius) => Math.PI * radius * radius
+};
+
+// Impure Functions
+let counter = 0;
+const config = { multiplier: 2 };
+
+const impureFunctions = {
+    // Modifies external variable
+    increment: () => ++counter,
+    
+    // Depends on external state
+    getMultipliedValue: (x) => x * config.multiplier,
+    
+    // Modifies original array (side effect)
+    pushToArray: (arr, item) => {
+        arr.push(item);
+        return arr;
+    },
+    
+    // Has side effect (console.log)
+    logAndReturn: (value) => {
+        console.log('Processing:', value);
+        return value * 2;
+    }
+};
+
+// Pure function benefits:
+// 1. Predictable
+// 2. Easy to test
+// 3. Cacheable (memoization)
+// 4. No side effects
+console.log(pureFunctions.add(2, 3)); // Always 5
+console.log(pureFunctions.add(2, 3)); // Always 5
+
+// Impure function issues:
+console.log(impureFunctions.increment()); // 1
+console.log(impureFunctions.increment()); // 2 - Different result!
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 49. Function Composition & Pipelines
+
+**Definition:** Function composition is combining simple functions to create more complex operations. Pipelines allow data to flow through multiple transformation functions in sequence.
+
+**Exp:** Function composition matlab simple functions ko combine karke complex operations banana. Pipeline matlab data ko multiple functions se pass karna jaise factory assembly line.
+
+**Theory:**
+Functional composition promotes code reusability and readability by breaking complex operations into simple, composable functions.
+
+```javascript
+// Basic function composition
+const compose = (...fns) => (value) => fns.reduceRight((acc, fn) => fn(acc), value);
+const pipe = (...fns) => (value) => fns.reduce((acc, fn) => fn(acc), value);
+
+// Helper functions
+const addTax = (price) => price * 1.1;
+const addShipping = (price) => price + 15;
+const applyDiscount = (price) => price * 0.9;
+const round = (price) => Math.round(price * 100) / 100;
+
+// Using pipe (left to right - more readable)
+const calculateFinalPrice = pipe(
+    applyDiscount,    // First: Apply 10% discount
+    addShipping,      // Then: Add $15 shipping
+    addTax,          // Then: Add 10% tax
+    round            // Finally: Round to 2 decimals
+);
+
+console.log(calculateFinalPrice(100)); // 111.5
+
+// Data processing pipeline
+const users = [
+    { name: 'John', age: 25, salary: 50000, active: true },
+    { name: 'Jane', age: 30, salary: 75000, active: false },
+    { name: 'Bob', age: 35, salary: 60000, active: true }
+];
+
+const result = users
+    .filter(user => user.active)
+    .filter(user => user.age >= 25)
+    .map(user => ({ ...user, bonus: user.salary * 0.1 }))
+    .reduce((total, user) => total + user.salary, 0);
+
+console.log('Total salary:', result);
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 50. Separation of Concerns (MVC Pattern)
+
+**Definition:** Separation of Concerns is a design principle that divides a program into distinct sections, each handling a separate concern. MVC (Model-View-Controller) is a common architectural pattern implementing this principle.
+
+**Exp:** Separation of concerns matlab different responsibilities ko alag alag sections mein divide karna. MVC pattern mein Model (data), View (UI), aur Controller (logic) separate hote hain.
+
+**Theory:**
+Separating concerns makes code more maintainable, testable, and scalable.
+
+```javascript
+// Model - Data and Business Logic
+class TodoModel {
+    constructor() {
+        this.todos = [];
+        this.nextId = 1;
+    }
+    
+    addTodo(text) {
+        if (!text.trim()) throw new Error('Todo text cannot be empty');
+        
+        const todo = {
+            id: this.nextId++,
+            text: text.trim(),
+            completed: false
+        };
+        
+        this.todos.push(todo);
+        return todo;
+    }
+    
+    deleteTodo(id) {
+        const index = this.todos.findIndex(todo => todo.id === id);
+        if (index > -1) {
+            return this.todos.splice(index, 1)[0];
+        }
+        throw new Error('Todo not found');
+    }
+    
+    getTodos() {
+        return [...this.todos];
+    }
+}
+
+// View - DOM Manipulation Only
+class TodoView {
+    constructor() {
+        this.todoList = document.getElementById('todoList');
+        this.todoInput = document.getElementById('todoInput');
+        this.setupEventListeners();
+    }
+    
+    setupEventListeners() {
+        document.getElementById('addBtn').addEventListener('click', () => {
+            if (this.onAddTodo) {
+                this.onAddTodo(this.todoInput.value);
+            }
+        });
+    }
+    
+    renderTodos(todos) {
+        this.todoList.innerHTML = '';
+        
+        todos.forEach(todo => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <span>${todo.text}</span>
+                <button onclick="todoController.deleteTodo(${todo.id})">Delete</button>
+            `;
+            this.todoList.appendChild(li);
+        });
+    }
+    
+    clearInput() {
+        this.todoInput.value = '';
+    }
+}
+
+// Controller - Connects Model and View
+class TodoController {
+    constructor() {
+        this.model = new TodoModel();
+        this.view = new TodoView();
+        this.bindEvents();
+    }
+    
+    bindEvents() {
+        this.view.onAddTodo = (text) => this.addTodo(text);
+    }
+    
+    addTodo(text) {
+        try {
+            this.model.addTodo(text);
+            this.view.clearInput();
+            this.updateView();
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+    
+    deleteTodo(id) {
+        try {
+            this.model.deleteTodo(id);
+            this.updateView();
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+    
+    updateView() {
+        this.view.renderTodos(this.model.getTodos());
+    }
+}
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 51. Custom Utility Implementations
+
+**Definition:** Creating custom implementations of built-in methods and utilities to understand their inner workings and provide specialized functionality.
+
+**Exp:** Built-in methods ko khud implement karna understanding improve karne ke liye. Jaise map(), filter() ko scratch se banana.
+
+**Theory:**
+Implementing utilities from scratch helps understand JavaScript fundamentals and provides learning insights.
+
+```javascript
+// Custom Array Methods
+Array.prototype.myMap = function(callback, thisArg) {
+    const result = [];
+    for (let i = 0; i < this.length; i++) {
+        if (i in this) {
+            result[i] = callback.call(thisArg, this[i], i, this);
+        }
+    }
+    return result;
+};
+
+Array.prototype.myFilter = function(callback, thisArg) {
+    const result = [];
+    for (let i = 0; i < this.length; i++) {
+        if (i in this && callback.call(thisArg, this[i], i, this)) {
+            result.push(this[i]);
+        }
+    }
+    return result;
+};
+
+// Deep Clone Implementation
+function deepClone(obj, visited = new WeakMap()) {
+    if (obj === null || typeof obj !== 'object') return obj;
+    
+    if (visited.has(obj)) return visited.get(obj);
+    
+    if (obj instanceof Date) return new Date(obj.getTime());
+    if (obj instanceof RegExp) return new RegExp(obj.source, obj.flags);
+    
+    if (Array.isArray(obj)) {
+        const clonedArray = [];
+        visited.set(obj, clonedArray);
+        obj.forEach((item, index) => {
+            clonedArray[index] = deepClone(item, visited);
+        });
+        return clonedArray;
+    }
+    
+    const clonedObj = {};
+    visited.set(obj, clonedObj);
+    
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            clonedObj[key] = deepClone(obj[key], visited);
+        }
+    }
+    
+    return clonedObj;
+}
+
+// Memoization utility
+function memoize(fn) {
+    const cache = new Map();
+    
+    return function(...args) {
+        const key = JSON.stringify(args);
+        
+        if (cache.has(key)) {
+            return cache.get(key);
+        }
+        
+        const result = fn.apply(this, args);
+        cache.set(key, result);
+        return result;
+    };
+}
+
+// Usage examples
+const numbers = [1, 2, 3, 4];
+console.log(numbers.myMap(x => x * 2)); // [2, 4, 6, 8]
+
+const expensiveFunction = memoize((n) => {
+    console.log('Computing...');
+    return n * n;
+});
+
+console.log(expensiveFunction(5)); // Computing... 25
+console.log(expensiveFunction(5)); // 25 (cached, no "Computing...")
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 52. JavaScript Engine & Event Loop Deep Dive
+
+**Definition:** Understanding how JavaScript engines work, including the call stack, heap memory, event loop, microtasks, and macrotasks to comprehend asynchronous behavior.
+
+**Exp:** JavaScript engine kaise kaam karta hai browser mein - call stack, memory, event loop sab kaise coordinate karte hain asynchronous operations ke liye.
+
+**Theory:**
+The JavaScript engine consists of a call stack, heap memory, and event loop that work together to execute code.
+
+```javascript
+// Event Loop Demonstration
+console.log('1. Start');
+
+// Synchronous code
+console.log('2. Synchronous');
+
+// Macrotask (Timer API)
+setTimeout(() => {
+    console.log('5. Macrotask (setTimeout)');
+}, 0);
+
+// Microtask (Promise)
+Promise.resolve().then(() => {
+    console.log('4. Microtask (Promise)');
+});
+
+console.log('3. End');
+
+// Output: 1, 2, 3, 4, 5
+// Explanation: Call stack first, then microtasks, then macrotasks
+
+// Call Stack visualization
+function callStackDemo() {
+    console.log('Call Stack Demo:');
+    
+    function first() {
+        console.log('First function');
+        second();
+        console.log('First function end');
+    }
+    
+    function second() {
+        console.log('Second function');
+        third();
+        console.log('Second function end');
+    }
+    
+    function third() {
+        console.log('Third function');
+    }
+    
+    first();
+    
+    // Stack trace: first() -> second() -> third()
+    // LIFO: third() pops first, then second(), then first()
+}
+
+// Microtask vs Macrotask priority
+function queuePriorityDemo() {
+    console.log('=== Queue Priority Demo ===');
+    
+    // Macrotasks (Task Queue)
+    setTimeout(() => console.log('Macrotask 1'), 0);
+    setTimeout(() => console.log('Macrotask 2'), 0);
+    
+    // Microtasks (Microtask Queue) - Higher priority
+    Promise.resolve().then(() => console.log('Microtask 1'));
+    Promise.resolve().then(() => {
+        console.log('Microtask 2');
+        // Nested microtask - still higher priority than macrotasks
+        Promise.resolve().then(() => console.log('Nested Microtask'));
+    });
+    
+    console.log('Synchronous');
+    
+    // Output:
+    // Synchronous
+    // Microtask 1
+    // Microtask 2
+    // Nested Microtask
+    // Macrotask 1
+    // Macrotask 2
+}
+```
+
+[⬆️ Back to Top](#top)
+
+---
+
+## 53. Web APIs & Browser Threading
+
+**Definition:** Web APIs provide browser functionality beyond core JavaScript, including DOM manipulation, network requests, timers, and geolocation. Understanding how these work with the single-threaded JavaScript runtime.
+
+**Exp:** Web APIs browser ki extra functionality provide karte hain jo JavaScript ke core part nahi hain. Yeh background mein run karte hain aur event loop ke through JavaScript se communicate karte hain.
+
+**Theory:**
+Web APIs run in separate threads but communicate with JavaScript through the event loop and callback queues.
+
+```javascript
+// Web APIs Demo
+class WebAPIsDemo {
+    constructor() {
+        this.demonstrateWebAPIs();
+    }
+    
+    demonstrateWebAPIs() {
+        console.log('=== Web APIs Demonstration ===');
+        
+        // DOM API
+        if (typeof document !== 'undefined') {
+            document.addEventListener('click', (event) => {
+                console.log('DOM Event handled by Web API');
+                console.log('Clicked at:', event.clientX, event.clientY);
+            });
+        }
+        
+        // Timer API (handled by browser, not JavaScript engine)
+        const timerId = setTimeout(() => {
+            console.log('Timer API callback executed');
+        }, 1000);
+        
+        // Network API (Fetch)
+        if (typeof fetch !== 'undefined') {
+            fetch('https://jsonplaceholder.typicode.com/posts/1')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Fetch API result:', data.title);
+                })
+                .catch(error => {
+                    console.log('Fetch API error:', error.message);
+                });
+        }
+        
+        // Geolocation API
+        if (navigator && navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                position => {
+                    console.log('Geolocation API success:', {
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude
+                    });
+                },
+                error => {
+                    console.log('Geolocation API error:', error.message);
+                }
+            );
+        }
+        
+        // Local Storage API
+        if (typeof localStorage !== 'undefined') {
+            localStorage.setItem('webapi-demo', 'test-value');
+            console.log('LocalStorage API:', localStorage.getItem('webapi-demo'));
+        }
+    }
+    
+    // Demonstrate how Web APIs don't block the main thread
+    demonstrateNonBlocking() {
+        console.log('Before long-running Web API call');
+        
+        // This doesn't block JavaScript execution
+        setTimeout(() => {
+            console.log('Long-running timer completed');
+        }, 3000);
+        
+        console.log('After Web API call (not blocked)');
+        
+        // JavaScript continues executing while Web API runs in background
+        for (let i = 0; i < 3; i++) {
+            console.log(`Loop iteration ${i}`);
+        }
+    }
+}
+
+// Browser Threading Model
+/*
+Browser has multiple threads:
+1. JavaScript Engine Thread (single-threaded)
+2. GUI Rendering Thread
+3. Timer Thread
+4. Network Thread  
+5. File I/O Thread
+
+Web APIs run on separate threads and communicate via:
+- Task Queue (Macrotasks)
+- Microtask Queue
+- Event Loop coordinates between threads
+*/
+```
+
+[⬆️ Back to Top](#top)
 
 ---
 
