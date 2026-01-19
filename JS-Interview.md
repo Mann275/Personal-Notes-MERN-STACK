@@ -828,6 +828,14 @@ fruits.pop(); // Remove from end
 fruits.unshift("grapes"); // Add at start
 fruits.shift(); // Remove from start
 
+// Splice - Add/Remove from anywhere
+fruits.splice(1, 1); // Remove 1 item from index 1
+fruits.splice(1, 0, "kiwi"); // Add "kiwi" at index 1
+fruits.splice(1, 1, "pineapple"); // Replace item at index 1
+
+// Slice - Copy part of array (doesn't change original)
+const newFruits = fruits.slice(1, 3); // Copy from index 1 to 2
+
 // Length
 console.log(fruits.length); // How many items
 
