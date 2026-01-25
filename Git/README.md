@@ -10,6 +10,9 @@
 These notes are based on my handwritten learning notes.  
 Covers Git basics, stages, branching, merging, conflicts, stash, reset, and GitHub workflow.
 
+## 📄 Official Git Cheat Sheet
+[Git Official Cheat Sheet (PDF)](https://git-scm.com/cheat-sheet.pdf)
+
 ---
 
 <div align="center">
