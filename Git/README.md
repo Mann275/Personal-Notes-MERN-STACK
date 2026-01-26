@@ -12,7 +12,9 @@ Covers Git basics, stages, branching, merging, conflicts, stash, reset, and GitH
 
 ## 📄 Official Git Cheat Sheet And Tutorial
 [Git Official Cheat Sheet (PDF)](https://git-scm.com/cheat-sheet.pdf)
-[Git tutorial (PDF)](https://youtu.be/mAFoROnOfHs?si=AuyCtnN_gCSuChpk)
+
+
+[Git tutorial](https://youtu.be/mAFoROnOfHs?si=AuyCtnN_gCSuChpk)
 
 ---
 
