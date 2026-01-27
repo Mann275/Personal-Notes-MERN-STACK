@@ -1,0 +1,24 @@
+*React*
+
+-React flow
+react creates an object and from that it generates the DOM
+
+
+-react uses babel
+babel works like is translate's the jsx synatx to modern js for browser understanding
+
+-hooks 
+are like function which also remembers the data 
+1- usestate
+2- useref
+3- usecallback
+4- useeffect
+
+-virtualDom (react dont use now) it is used wiith the help of fiber algoritham
+ its like taking full track of dom 
+ and changesd dom element only edited 
+
+ but if any element depends on network 
+
+talwind integration
+
