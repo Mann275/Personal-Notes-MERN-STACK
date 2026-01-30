@@ -1,22 +1,24 @@
-# 📌 User Profile Management Form
+# User Profile Management Form
 
-A React application demonstrating advanced form handling using Formik, Yup validation, and React hooks.
+A comprehensive React application demonstrating advanced form handling using Formik, Yup validation, and React hooks with modern UI components.
 
 ## 🚀 Features
 
-- **Form Validation**: Complete validation using Yup schema
+- **Advanced Form Validation**: Complete validation using Yup schema
 - **React Hooks**: Comprehensive use of useState, useEffect, and useRef
 - **Auto-focus**: Full Name input automatically focused on mount
 - **Pre-filled Data**: Simulated API call to pre-populate form fields
 - **Loading States**: Visual feedback during form submission
 - **Success Notifications**: User feedback after successful submission
 - **Responsive Design**: Mobile-friendly interface
+- **Modern UI Components**: Tailwind CSS styling
 
 ## 🛠️ Technologies Used
 
 - **React 18** - Core framework
 - **Formik** - Form state management
 - **Yup** - Schema validation
+- **Tailwind CSS** - Styling framework
 - **Vite** - Build tool
 - **CSS3** - Styling and animations
 

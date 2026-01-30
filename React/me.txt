@@ -9,10 +9,14 @@ babel works like is translate's the jsx synatx to modern js for browser understa
 
 -hooks 
 are like function which also remembers the data 
+custom hooks creation
 1- usestate
 2- useref
 3- usecallback
 4- useeffect
+5- useparam
+6-useSearchParams
+7-useNavigate
 
 -virtualDom (react dont use now) it is used wiith the help of fiber algoritham
  its like taking full track of dom 
@@ -23,3 +27,10 @@ are like function which also remembers the data
 talwind integration
 
 yup and formik
+
+*React Routes*
+link , navlink
+react-router-dom
+(createBrowserRouter,
+  createRoutesFromElements,
+  Route,)

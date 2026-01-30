@@ -1,16 +1,85 @@
-# React + Vite
+# React Router Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application demonstrating routing functionality with multiple pages and navigation.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React Router v6** implementation
+- Multiple page navigation (Home, About, Contact, Github, User)
+- Layout component with persistent header/footer
+- Dynamic routing with parameters
+- GitHub API integration for user data
+- Responsive design with Tailwind CSS
 
-## React Compiler
+## Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+07reactRouter/
+├── src/
+│   ├── components/
+│   │   ├── Layout.jsx          # Main layout wrapper
+│   │   ├── Header/             # Navigation header
+│   │   ├── Footer/             # Site footer
+│   │   ├── Home/               # Home page component
+│   │   ├── About/              # About page component
+│   │   ├── Contact/            # Contact page component
+│   │   ├── Github/             # GitHub user data display
+│   │   └── User/               # User profile component
+│   ├── main.jsx                # App entry point
+│   └── App.css                 # Global styles
+├── package.json
+└── README.md
+```
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React 18**
+- **React Router v6**
+- **Tailwind CSS**
+- **Vite** (Build tool)
+- **GitHub API** integration
+
+## Key Concepts Learned
+
+1. **React Router Setup**
+   - `BrowserRouter` implementation
+   - Route configuration
+   - Navigation components
+
+2. **Dynamic Routing**
+   - URL parameters with `useParams`
+   - Dynamic route matching
+   - Parameter extraction
+
+3. **Layout Pattern**
+   - Persistent layout across routes
+   - Outlet for nested routing
+   - Shared navigation
+
+4. **API Integration**
+   - Fetching GitHub user data
+   - Loading states management
+   - Error handling
+
+## Installation & Setup
+
+```bash
+npm install
+npm run dev
+```
+
+## Routes
+
+- `/` - Home page
+- `/about` - About page  
+- `/contact` - Contact page
+- `/github` - GitHub user data
+- `/user/:userid` - Dynamic user profile
+
+## Learning Outcomes
+
+- Understanding of client-side routing
+- Component-based navigation
+- URL parameter handling
+- API integration with routing
+- Responsive design implementation
