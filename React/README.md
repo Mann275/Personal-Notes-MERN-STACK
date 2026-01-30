@@ -7,31 +7,37 @@ A comprehensive collection of React projects demonstrating various concepts, pat
 ### 🔧 **Core React Projects**
 
 #### **01.1CustomReact/**
+
 - Custom React implementation from scratch
 - Understanding React internals and Virtual DOM
 - Educational project for core concepts
 
 #### **01vite-project/**
+
 - Basic React setup with Vite
 - Introduction to modern React development
 - Project scaffolding and configuration
 
 #### **02Counter-pro/**
+
 - State management with useState
 - Event handling patterns
 - Component lifecycle basics
 
 #### **03TailwindProps/**
+
 - Tailwind CSS integration
 - Component composition with props
 - Reusable component patterns
 
 #### **04bgchanger-pro/**
+
 - Dynamic styling with React
 - State-driven UI changes
 - Color manipulation and theming
 
 #### **05UseEffect,UseRef,UseCallback-passwordGenerator-pro/**
+
 - Advanced React hooks implementation
 - useEffect for side effects
 - useRef for DOM manipulation
@@ -39,12 +45,14 @@ A comprehensive collection of React projects demonstrating various concepts, pat
 - Practical password generator application
 
 #### **06CustomHooks-ComponentResuable-currencyConverter/**
+
 - Custom hooks development
 - Component reusability patterns
 - API integration (Currency API)
 - Real-world application example
 
 #### **07reactRouter/**
+
 - React Router v6 implementation
 - Multi-page navigation
 - Dynamic routing with parameters
@@ -53,18 +61,21 @@ A comprehensive collection of React projects demonstrating various concepts, pat
 ### 🎯 **Advanced Projects (SidesQuests/)**
 
 #### **ReactRoutesDemo/**
+
 - Advanced routing patterns
 - Query parameters vs Route parameters
 - Authentication flows
 - Protected routes and navigation guards
 
 #### **Form/**
+
 - Form handling techniques
 - Controlled components
 - Validation patterns
 - User input management
 
 #### **UserProfileForm/**
+
 - Complex form with Formik & Yup
 - File upload handling
 - Advanced validation schemas
@@ -73,6 +84,7 @@ A comprehensive collection of React projects demonstrating various concepts, pat
 ### 📚 **Specialized Projects**
 
 #### **Formik-and-Yup/**
+
 - Form validation library integration
 - Schema-based validation
 - Error handling and user feedback
@@ -91,12 +103,14 @@ A comprehensive collection of React projects demonstrating various concepts, pat
 ## 🎯 **Learning Objectives**
 
 ### **Beginner Level**
+
 - ✅ React fundamentals and JSX
 - ✅ Component creation and props
 - ✅ State management with useState
 - ✅ Event handling patterns
 
 ### **Intermediate Level**
+
 - ✅ Advanced hooks (useEffect, useRef, useCallback)
 - ✅ Custom hooks development
 - ✅ API integration and data fetching
@@ -104,6 +118,7 @@ A comprehensive collection of React projects demonstrating various concepts, pat
 - ✅ Form handling and validation
 
 ### **Advanced Level**
+
 - ✅ Performance optimization techniques
 - ✅ Complex state management
 - ✅ Authentication and protected routes
@@ -151,6 +166,7 @@ npm run dev
 ## 📚 **Learning Resources**
 
 Each project includes:
+
 - 📝 Detailed README with explanations
 - 💻 Well-commented code examples
 - 🎯 Learning objectives and outcomes
@@ -160,6 +176,7 @@ Each project includes:
 ## 🔄 **Continuous Learning**
 
 This repository is continuously updated with:
+
 - New React features and patterns
 - Modern development practices
 - Performance optimization techniques
@@ -183,4 +200,4 @@ This repository is continuously updated with:
 
 **Happy Learning! 🎉**
 
-*This repository represents a comprehensive journey through React development, from basic concepts to advanced patterns. Each project builds upon previous knowledge while introducing new concepts and best practices.*
+_This repository represents a comprehensive journey through React development, from basic concepts to advanced patterns. Each project builds upon previous knowledge while introducing new concepts and best practices._

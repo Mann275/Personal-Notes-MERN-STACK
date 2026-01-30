@@ -71,7 +71,7 @@ npm run dev
 ## Routes
 
 - `/` - Home page
-- `/about` - About page  
+- `/about` - About page
 - `/contact` - Contact page
 - `/github` - GitHub user data
 - `/user/:userid` - Dynamic user profile

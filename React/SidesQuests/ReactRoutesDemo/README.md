@@ -45,25 +45,29 @@ ReactRoutesDemo/
 ## Key Features Demonstrated
 
 ### 1. **Query Parameters Implementation**
+
 ```jsx
 // URL: /product-details?id=1&name=Laptop&category=electronics
 const [searchParams] = useSearchParams();
-const productId = searchParams.get('id');
+const productId = searchParams.get("id");
 ```
 
 ### 2. **Authentication Flow**
+
 - Login form with validation
 - Redirect delay with loading states
 - Protected dashboard route
 - Form state management
 
 ### 3. **Dynamic Product Catalog**
+
 - Product grid layout
 - Interactive product cards
 - Dynamic URL generation
 - Category-based organization
 
 ### 4. **Modern UI Components**
+
 - Responsive grid layouts
 - Loading animations
 - Form validations
@@ -91,6 +95,7 @@ npm run dev
 ### Query Parameters vs Route Parameters
 
 **Query Parameters** (Used in this project):
+
 ```jsx
 // URL: /product-details?id=1&name=Laptop
 <Link to={`/product-details?id=${product.id}&name=${product.name}`}>
@@ -101,22 +106,24 @@ const productId = searchParams.get('id');
 ```
 
 **Route Parameters** (Alternative):
+
 ```jsx
 // URL: /products/1
-<Route path="products/:id" element={<ProductDetails />} />
+<Route path="products/:id" element={<ProductDetails />} />;
 
 // Component
 const { id } = useParams();
 ```
 
 ### Login with Delay
+
 ```jsx
 const handleSubmit = (e) => {
   e.preventDefault();
   if (username && password) {
     setIsRedirecting(true);
     setTimeout(() => {
-      navigate('/dashboard');
+      navigate("/dashboard");
     }, 2000);
   }
 };
