@@ -25,7 +25,7 @@ function TodoItem({ todo }) {
         todo.completed
           ? "bg-gradient-to-r from-green-400/20 to-emerald-500/20 border-green-400/30"
           : "bg-gradient-to-r from-white/15 to-white/5 border-white/20"
-      } backdrop-blur-sm border-2 rounded-2xl p-6 shadow-xl hover:shadow-2xl hover:scale-[1.01]`}
+      } backdrop-blur-sm border-2 rounded-2xl p-4 sm:p-6 shadow-xl hover:shadow-2xl hover:scale-[1.01]`}
     >
       {/* Animated background gradient */}
       <div
@@ -36,9 +36,9 @@ function TodoItem({ todo }) {
         }`}
       ></div>
 
-      <div className="relative flex items-center gap-4">
+      <div className="relative flex items-start sm:items-center gap-3 sm:gap-4">
         {/* Custom Checkbox */}
-        <div className="relative">
+        <div className="relative mt-1 sm:mt-0 flex-shrink-0">
           <input
             type="checkbox"
             className="sr-only"
@@ -48,7 +48,7 @@ function TodoItem({ todo }) {
           />
           <label
             htmlFor={`todo-${todo.id}`}
-            className={`relative flex items-center justify-center w-7 h-7 rounded-full border-2 cursor-pointer transition-all duration-300 ${
+            className={`relative flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 cursor-pointer transition-all duration-300 ${
               todo.completed
                 ? "bg-green-600 border-green-600 shadow-lg shadow-green-600/25"
                 : "border-gray-500 hover:border-gray-400 bg-gray-600"
@@ -56,7 +56,7 @@ function TodoItem({ todo }) {
           >
             {todo.completed && (
               <svg
-                className="w-4 h-4 text-white animate-pulse"
+                className="w-3 h-3 sm:w-4 sm:h-4 text-white animate-pulse"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -73,12 +73,12 @@ function TodoItem({ todo }) {
         </div>
 
         {/* Todo Text */}
-        <div className="flex-1">
+        <div className="flex-1 min-w-0 pr-2">
           <input
             type="text"
-            className={`w-full bg-transparent outline-none text-lg font-medium transition-all duration-300 ${
+            className={`w-full bg-transparent outline-none text-base sm:text-lg font-medium transition-all duration-300 ${
               isTodoEditable
-                ? "text-white bg-white/10 px-3 py-2 rounded-lg border-2 border-white/30 focus:border-white/60"
+                ? "text-white bg-white/10 px-2 sm:px-3 py-1 sm:py-2 rounded-lg border-2 border-white/30 focus:border-white/60"
                 : "text-white border-transparent"
             } ${
               todo.completed ? "line-through text-white/60" : ""
@@ -100,10 +100,10 @@ function TodoItem({ todo }) {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-shrink-0">
           {/* Edit/Save Button */}
           <button
-            className={`group/btn relative overflow-hidden w-11 h-11 rounded-xl transition-all duration-300 transform hover:scale-110 active:scale-95 ${
+            className={`group/btn relative overflow-hidden w-9 h-9 sm:w-11 sm:h-11 rounded-xl transition-all duration-300 transform hover:scale-110 active:scale-95 ${
               todo.completed
                 ? "bg-gray-600 cursor-not-allowed opacity-50"
                 : isTodoEditable
@@ -125,7 +125,7 @@ function TodoItem({ todo }) {
             <div className="relative text-white text-lg">
               {isTodoEditable ? (
                 <svg
-                  className="w-5 h-5 mx-auto"
+                  className="w-4 h-4 sm:w-5 sm:h-5 mx-auto"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -139,7 +139,7 @@ function TodoItem({ todo }) {
                 </svg>
               ) : (
                 <svg
-                  className="w-5 h-5 mx-auto"
+                  className="w-4 h-4 sm:w-5 sm:h-5 mx-auto"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -157,13 +157,13 @@ function TodoItem({ todo }) {
 
           {/* Delete Button */}
           <button
-            className="group/btn relative overflow-hidden w-11 h-11 bg-red-600 hover:bg-red-700 rounded-xl transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-lg shadow-red-600/25"
+            className="group/btn relative overflow-hidden w-9 h-9 sm:w-11 sm:h-11 bg-red-600 hover:bg-red-700 rounded-xl transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-lg shadow-red-600/25"
             onClick={() => deleteTodo(todo.id)}
             title="Delete todo"
           >
             <div className="absolute inset-0 bg-white/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
             <svg
-              className="relative w-5 h-5 mx-auto text-white"
+              className="relative w-4 h-4 sm:w-5 sm:h-5 mx-auto text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -181,7 +181,9 @@ function TodoItem({ todo }) {
 
       {/* Completion celebration effect */}
       {todo.completed && (
-        <div className="absolute top-2 right-2 text-2xl animate-bounce">🎉</div>
+        <div className="absolute top-1 right-1 sm:top-2 sm:right-2 text-lg sm:text-2xl animate-bounce">
+          🎉
+        </div>
       )}
     </div>
   );

@@ -100,6 +100,38 @@ button:hover:not(:disabled) {
   transform: translateY(-1px);
 }
 
+/* Mobile-specific optimizations */
+@media (max-width: 640px) {
+  /* Improve touch targets for mobile */
+  button,
+  input[type="checkbox"] + label {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Reduce animation intensity on mobile */
+  .hover\:scale-\[1\.02\]:hover {
+    transform: scale(1.01);
+  }
+
+  /* Better scrolling on mobile */
+  .space-y-3 > * + * {
+    margin-top: 0.75rem;
+  }
+
+  /* Prevent zoom on input focus */
+  input {
+    font-size: 16px;
+  }
+}
+
+/* Improve focus visibility for accessibility */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
 button:active:not(:disabled) {
   transform: translateY(0);
 }
