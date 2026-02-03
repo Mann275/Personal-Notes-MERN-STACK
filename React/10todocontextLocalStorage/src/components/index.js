@@ -1,4 +1,4 @@
-import TodoForm from "./TodoForm"; // .js add karo
-import TodoItem from "./TodoItem"; // .js add karo
+import TodoForm from "./TodoForm.jsx";
+import TodoItem from "./TodoItem.jsx";
 
 export { TodoForm, TodoItem };
