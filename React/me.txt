@@ -52,3 +52,11 @@ steps--
 3rd useSelector and useDispatch
 
 dispatch reudecer ko use karte hui store me value add karta hai
+
+
+=============================
+project
+appwrite for backend serviecs
+tiny mce for that text editor
+html react parcer for displaying proper 
+react hook form 
