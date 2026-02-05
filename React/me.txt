@@ -41,3 +41,14 @@ it is used because of prop drilling like geting any prop/data from grand parent 
   1- create context 
 2-context provider 
 3- Usecontext 
+
+
+redux 
+react-redux 
+redux toolkit 
+steps--
+1st create redux store 
+2nd reducers
+3rd useSelector and useDispatch
+
+dispatch reudecer ko use karte hui store me value add karta hai
