@@ -1,16 +1,167 @@
-# React + Vite
+# Theme Switcher - Context API + Tailwind Dark Mode
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Topics Covered
 
-Currently, two official plugins are available:
+- Advanced Context API implementation
+- Theme management with state
+- Dark/Light mode toggle functionality
+- Tailwind CSS dark mode configuration
+- Global state for UI preferences
+- localStorage for theme persistence
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What This Project Does
 
-## React Compiler
+A complete theme switcher application that:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Toggles between light and dark themes instantly
+- Uses Context API to share theme state globally
+- Integrates with Tailwind's dark mode feature
+- Saves user preference in localStorage
+- Updates entire app UI based on selected theme
 
-## Expanding the ESLint configuration
+## How It Works
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Theme Context Setup
+
+```javascript
+// ThemeContext.js
+import { createContext, useContext } from "react";
+
+const ThemeContext = createContext({
+  themeMode: "light",
+  darkTheme: () => {},
+  lightTheme: () => {},
+});
+
+export const ThemeProvider = ThemeContext.Provider;
+
+export function useTheme() {
+  return useContext(ThemeContext);
+}
+```
+
+### 2. App.jsx - Provider Setup
+
+```javascript
+function App() {
+  const [themeMode, setThemeMode] = useState('light')
+
+  const lightTheme = () => {
+    setThemeMode('light')
+  }
+
+  const darkTheme = () => {
+    setThemeMode('dark')
+  }
+
+  // Apply theme to HTML element
+  useEffect(() => {
+    document.querySelector('html').classList.remove('light', 'dark')
+    document.querySelector('html').classList.add(themeMode)
+  }, [themeMode])
+
+  return (
+    <ThemeProvider value={{ themeMode, lightTheme, darkTheme }}>
+      <div className=\"min-h-screen bg-white dark:bg-gray-900\">
+        <ThemeBtn />
+        <Card />
+      </div>
+    </ThemeProvider>
+  )
+}
+```
+
+### 3. Using Dark Mode Classes
+
+```javascript
+function Card() {
+  return (
+    <div className=\"bg-white dark:bg-gray-800 border dark:border-gray-700\">
+      <h2 className=\"text-gray-900 dark:text-white\">
+        Theme Switcher Card
+      </h2>
+      <p className=\"text-gray-600 dark:text-gray-300\">
+        This text changes color based on theme!
+      </p>
+    </div>
+  )
+}
+```
+
+## Tailwind Configuration
+
+```javascript
+// tailwind.config.js
+export default {
+  darkMode: 'class',  // Enable class-based dark mode
+  content: [
+    \"./index.html\",
+    \"./src/**/*.{js,ts,jsx,tsx}\",
+  ]
+}
+```
+
+## Key Concepts
+
+### Tailwind Dark Mode
+
+- Add `darkMode: 'class'` in tailwind.config.js
+- Use `dark:` prefix for dark mode styles
+- When `<html>` has class \"dark\", all `dark:` styles activate
+
+### Common Dark Mode Classes
+
+```css
+/* Backgrounds */
+bg-white dark:bg-gray-900
+bg-gray-100 dark:bg-gray-800
+
+/* Text */
+text-gray-900 dark:text-white
+text-gray-600 dark:text-gray-300
+
+/* Borders */
+border-gray-300 dark:border-gray-700
+```
+
+### LocalStorage Integration
+
+```javascript
+useEffect(() => {
+  // Load theme from localStorage
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) setThemeMode(savedTheme);
+}, []);
+
+useEffect(() => {
+  // Save theme to localStorage
+  localStorage.setItem("theme", themeMode);
+  document.querySelector("html").classList.remove("light", "dark");
+  document.querySelector("html").classList.add(themeMode);
+}, [themeMode]);
+```
+
+## Setup
+
+```bash
+npm install
+npm run dev
+```
+
+## Features
+
+- Light/Dark theme toggle
+- Persistent theme across all components
+- Tailwind CSS integration
+- Smooth theme transitions
+- Real-world Context API usage
+- localStorage persistence
+- Instant UI updates
+
+## Learning Outcomes
+
+- Implementing theme management with Context API
+- Using Tailwind's class-based dark mode
+- Creating reusable theme context
+- Managing global UI state
+- Real-world state management patterns

@@ -1,32 +1,57 @@
-# React Counter Application - State Management with useState
+# Counter App - useState Hook
 
-## Project Overview
+## Topics Covered
 
-This project demonstrates React's state management using the `useState` hook. It's a simple counter application with increment and decrement functionality, including boundary conditions to prevent the counter from going below 0 or above 5.
+- useState hook
+- State management
+- Event handling
+- Conditional logic
+- Component re-rendering
 
-## Theory & Concepts
+## What This Project Does
 
-### React Hooks
+Simple counter with increment/decrement buttons. Counter range: 0 to 20.
 
-- **useState** is a React Hook that allows you to add state variables to functional components
-- Returns an array with two elements: current state value and a setter function
-- State updates trigger component re-renders automatically
-- Hooks follow the "Rules of Hooks" - must be called at the top level of components
+## Key Concepts
 
-### State Management
+### useState Hook
 
-- **State** represents data that changes over time in a component
-- State is local to the component and encapsulated
-- When state changes, React re-renders the component with the new state
-- **Immutability**: State should not be directly mutated, always use setter functions
+```javascript
+const [counter, setCounter] = useState(0);
+// counter - current value
+// setCounter - function to update value
+// 0 - initial value
+```
+
+### State Updates
+
+- When state changes, component re-renders
+- UI updates automatically
+- Always use setter function, never change state directly
 
 ### Event Handling
 
-- **onClick** event handler executes functions when buttons are clicked
-- Event handlers can access and modify component state
-- Functions can include conditional logic for business rules
+```javascript
+<button onClick={addValue}>+</button>
+<button onClick={removeValue}>-</button>
+```
 
-## Project Implementation
+### Conditional Logic
+
+- Don't go below 0
+- Don't go above 20
+- Check before updating state
+
+## Setup
+
+```bash
+npm install
+npm run dev
+```
+
+## Learning Outcome
+
+Master useState hook and state management basics.
 
 ### What This Project Does
 

@@ -1,16 +1,115 @@
-# React + Vite
+# Currency Converter - Custom Hooks & API Integration
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Topics Covered
 
-Currently, two official plugins are available:
+- Custom Hooks creation and usage
+- API integration with useEffect
+- Component reusability patterns
+- Real-time data fetching
+- State management across components
+- Input handling and validation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What This Project Does
 
-## React Compiler
+A real-world currency converter application that:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Fetches live exchange rates from a currency API
+- Allows users to convert between different currencies in real-time
+- Demonstrates how to create and use custom hooks for reusable logic
+- Shows best practices for API integration in React
 
-## Expanding the ESLint configuration
+## How It Works
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Custom Hook (useCurrencyInfo)**:
+   - Takes currency code as input (e.g., "usd", "inr")
+   - Fetches exchange rates from API when currency changes
+   - Returns object with all conversion rates
+   - Can be reused anywhere in the app
+
+2. **API Integration**:
+   - Uses fetch API to get currency data
+   - Data updates automatically when currency selection changes
+   - Handles loading states and errors
+
+3. **Two-Way Conversion**:
+   - User enters amount in one currency
+   - Automatically calculates and shows equivalent in other currency
+   - Swap button to reverse currency selection
+
+## Code Example
+
+```javascript
+// Custom Hook
+function useCurrencyInfo(currency) {
+  const [data, setData] = useState({})
+
+  useEffect(() => {
+    fetch(`https://api.example.com/currency/${currency}`)
+      .then(res => res.json())
+      .then(res => setData(res[currency]))
+  }, [currency])
+
+  return data
+}
+
+// Using in Component
+function App() {
+  const [amount, setAmount] = useState(0)
+  const [from, setFrom] = useState('usd')
+  const [to, setTo] = useState('inr')
+
+  const currencyInfo = useCurrencyInfo(from)
+  const convertedAmount = amount * currencyInfo[to]
+
+  return (
+    // UI here
+  )
+}
+```
+
+## Key Concepts
+
+### Why Custom Hooks?
+
+- **Reusability**: Write once, use anywhere
+- **Clean Code**: Separate logic from UI
+- **Easy Testing**: Test logic independently
+- **Sharing Logic**: Share between multiple components
+
+### Component Reusability
+
+```javascript
+// Same InputBox component used for both "From" and "To"
+<InputBox
+  label="From"
+  amount={amount}
+  onAmountChange={setAmount}
+  currency={from}
+  onCurrencyChange={setFrom}
+/>
+
+<InputBox
+  label="To"
+  amount={convertedAmount}
+  currency={to}
+  onCurrencyChange={setTo}
+  amountDisabled  // Can't edit converted amount
+/>
+```
+
+## Setup
+
+```bash
+npm install
+npm run dev
+```
+
+## Features
+
+✅ Live currency exchange rates
+✅ 50+ currencies support
+✅ Swap currencies with one click
+✅ Real-time conversion calculation
+✅ Responsive design
+✅ Custom hooks pattern demonstration
+✅ Clean and maintainable code

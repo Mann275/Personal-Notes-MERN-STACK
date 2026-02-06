@@ -1,33 +1,58 @@
-# React with Vite - Component Import & Export
+# React with Vite
 
-## Project Overview
+## Topics Covered
 
-This project demonstrates the fundamental concepts of React component creation, importing, and exporting using Vite as the build tool. It showcases how to structure a simple React application with custom components.
+- React basics
+- Component creation
+- JSX syntax
+- Import/Export components
+- Vite setup
+- Project structure
 
-## Theory & Concepts
+## What This Project Does
 
-### React Components
+Basic React setup with Vite showing how to create and use components.
 
-- **Components** are the building blocks of React applications
-- Components are JavaScript functions that return JSX (JavaScript XML)
-- Components can be imported and exported between files for better organization and reusability
-- **JSX** allows you to write HTML-like syntax within JavaScript
+## Key Concepts
 
-### Vite Build Tool
+### Components
 
-- **Vite** is a modern frontend build tool that provides fast development server and optimized builds
-- Hot Module Replacement (HMR) allows instant updates without page refresh during development
-- Significantly faster than traditional bundlers like webpack for development
+- JavaScript functions that return JSX
+- Reusable UI building blocks
+- Can be imported and exported
 
-### ES6 Modules
+### JSX
 
-- **Import/Export** statements allow sharing code between files
-- `export default` exports a single default value from a module
-- `import ComponentName from './path'` imports the default export
+- HTML-like syntax in JavaScript
+- Must return single parent element
+- Use `className` instead of `class`
 
-## Project Implementation
+### Vite
 
-### What This Project Does
+- Fast development server
+- Hot Module Replacement (HMR)
+- Instant updates without refresh
+- Better than traditional bundlers
+
+## Project Structure
+
+```
+src/
+├── App.jsx       # Main component
+├── main.jsx      # Entry point
+└── components/   # Custom components
+```
+
+## Setup
+
+```bash
+npm install
+npm run dev
+```
+
+## Learning Outcome
+
+Understand React project setup and component basics.
 
 - Creates a main App component that imports and renders a custom component
 - Demonstrates basic component structure and JSX syntax

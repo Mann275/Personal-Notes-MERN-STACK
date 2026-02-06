@@ -1,16 +1,272 @@
-# React + Vite
+# Todo App - Context API + Local Storage Persistence
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Topics Covered
 
-Currently, two official plugins are available:
+- Context API for global state management
+- Local Storage for data persistence
+- Complete CRUD operations
+- useEffect for side effects and storage sync
+- Array manipulation methods (map, filter)
+- Controlled form inputs
+- Conditional rendering and styling
+- Inline editing functionality
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What This Project Does
 
-## React Compiler
+A complete, production-ready Todo application featuring:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Add, edit, delete, and toggle todos
+- Global state management with Context API
+- Data persistence using browser's localStorage
+- Inline editing functionality
+- Mark todos as complete/incomplete
+- Data survives page refresh
+- Clean and intuitive UI
 
-## Expanding the ESLint configuration
+## How It Works - Complete Flow
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Context Setup
+
+```javascript
+// TodoContext.js
+import { createContext, useContext } from 'react'
+
+export const TodoContext = createContext({
+  todos: [
+    { id: 1, todo: \"Todo msg\", completed: false }
+  ],
+  addTodo: (todo) => {},
+  updateTodo: (id, todo) => {},
+  deleteTodo: (id) => {},
+  toggleComplete: (id) => {}
+})
+
+export const useTodo = () => {
+  return useContext(TodoContext)
+}
+
+export const TodoProvider = TodoContext.Provider
+```
+
+### 2. App.jsx - Provider Implementation
+
+```javascript
+function App() {
+  const [todos, setTodos] = useState([])
+
+  // Add Todo
+  const addTodo = (todo) => {
+    setTodos((prev) => [{ id: Date.now(), ...todo }, ...prev])
+  }
+
+  // Update Todo
+  const updateTodo = (id, todo) => {
+    setTodos((prev) => prev.map((prevTodo) =>
+      prevTodo.id === id ? todo : prevTodo
+    ))
+  }
+
+  // Delete Todo
+  const deleteTodo = (id) => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id))
+  }
+
+  // Toggle Complete
+  const toggleComplete = (id) => {
+    setTodos((prev) => prev.map((prevTodo) =>
+      prevTodo.id === id
+        ? { ...prevTodo, completed: !prevTodo.completed }
+        : prevTodo
+    ))
+  }
+
+  // Load from localStorage on mount
+  useEffect(() => {
+    const todos = JSON.parse(localStorage.getItem(\"todos\"))
+    if (todos && todos.length > 0) {
+      setTodos(todos)
+    }
+  }, [])
+
+  // Save to localStorage when todos change
+  useEffect(() => {
+    localStorage.setItem(\"todos\", JSON.stringify(todos))
+  }, [todos])
+
+  return (
+    <TodoProvider value={{ todos, addTodo, updateTodo, deleteTodo, toggleComplete }}>
+      <TodoForm />
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} />
+      ))}
+    </TodoProvider>
+  )
+}
+```
+
+### 3. TodoForm Component
+
+```javascript
+function TodoForm() {
+  const [todo, setTodo] = useState(\"\")
+  const { addTodo } = useTodo()
+
+  const add = (e) => {
+    e.preventDefault()
+    if (!todo) return
+    addTodo({ todo, completed: false })
+    setTodo(\"\")  // Clear input
+  }
+
+  return (
+    <form onSubmit={add}>
+      <input
+        type=\"text\"
+        value={todo}
+        onChange={(e) => setTodo(e.target.value)}
+        placeholder=\"Write Todo...\"
+      />
+      <button type=\"submit\">Add</button>
+    </form>
+  )
+}
+```
+
+### 4. TodoItem Component (with Inline Edit)
+
+```javascript
+function TodoItem({ todo }) {
+  const [isTodoEditable, setIsTodoEditable] = useState(false)
+  const [todoMsg, setTodoMsg] = useState(todo.todo)
+  const { updateTodo, deleteTodo, toggleComplete } = useTodo()
+
+  const editTodo = () => {
+    updateTodo(todo.id, { ...todo, todo: todoMsg })
+    setIsTodoEditable(false)
+  }
+
+  return (
+    <div>
+      <input
+        type=\"checkbox\"
+        checked={todo.completed}
+        onChange={() => toggleComplete(todo.id)}
+      />
+
+      <input
+        type=\"text\"
+        value={todoMsg}
+        onChange={(e) => setTodoMsg(e.target.value)}
+        readOnly={!isTodoEditable}
+        className={todo.completed ? \"line-through\" : \"\"}
+      />
+
+      <button onClick={() => {
+        if (isTodoEditable) {
+          editTodo()
+        } else {
+          setIsTodoEditable(true)
+        }
+      }}>
+        {isTodoEditable ? \"Save\" : \"Edit\"}
+      </button>
+
+      <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+    </div>
+  )
+}
+```
+
+## LocalStorage Integration Explained
+
+### Saving Data
+
+```javascript
+// Runs whenever 'todos' array changes
+useEffect(() => {
+  localStorage.setItem(\"todos\", JSON.stringify(todos))
+}, [todos])
+```
+
+### Loading Data
+
+```javascript
+// Runs once when component mounts
+useEffect(() => {
+  const todos = JSON.parse(localStorage.getItem(\"todos\"))
+  if (todos && todos.length > 0) {
+    setTodos(todos)
+  }
+}, [])
+```
+
+## CRUD Operations Breakdown
+
+### Create (Add)
+
+```javascript
+const addTodo = (todo) => {
+  setTodos((prev) => [
+    { id: Date.now(), ...todo }, // New todo at start
+    ...prev, // Existing todos
+  ]);
+};
+```
+
+### Read (Display)
+
+```javascript
+{
+  todos.map((todo) => <TodoItem key={todo.id} todo={todo} />);
+}
+```
+
+### Update (Edit)
+
+```javascript
+const updateTodo = (id, todo) => {
+  setTodos((prev) =>
+    prev.map((prevTodo) => (prevTodo.id === id ? todo : prevTodo)),
+  );
+};
+```
+
+### Delete (Remove)
+
+```javascript
+const deleteTodo = (id) => {
+  setTodos((prev) => prev.filter((todo) => todo.id !== id));
+};
+```
+
+## Setup
+
+```bash
+npm install
+npm run dev
+```
+
+## Features
+
+✅ Add new todos
+✅ Edit todos inline
+✅ Delete todos
+✅ Mark as complete/incomplete
+✅ Strikethrough for completed todos
+✅ Color coding (purple = active, green = completed)
+✅ Data persists after page refresh
+✅ Context API for state management
+✅ localStorage integration
+✅ Responsive design
+✅ Disable edit for completed todos
+
+## Learning Outcomes
+
+- Complex state management with Context API
+- Browser localStorage API usage
+- CRUD operations implementation
+- Array manipulation methods
+- Conditional rendering
+- Form handling in React
+- useEffect for side effects
+- Real-world app architecture

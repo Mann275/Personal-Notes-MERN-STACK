@@ -1,33 +1,79 @@
-# Password Generator - Advanced React Hooks & Browser APIs
+# Password Generator - Advanced Hooks
 
-## Project Overview
+## Topics Covered
 
-This project is an advanced password generator application that demonstrates multiple React hooks (`useState`, `useCallback`, `useEffect`, `useRef`) and browser APIs (Clipboard API). It generates secure passwords with customizable length and character sets, featuring copy-to-clipboard functionality and optimized performance through memoization.
+- useState - multiple states
+- useEffect - side effects
+- useRef - DOM reference
+- useCallback - optimization
+- Clipboard API
 
-## Theory & Concepts
+## What This Project Does
 
-### React Hooks Deep Dive
+Generates random passwords with customizable options. Copy to clipboard with one click.
 
-#### useState Hook
+## Key Concepts
 
-- **State Management**: Manages multiple state variables (length, password options, generated password)
-- **Multiple State Variables**: Each aspect of the generator has its own state
-- **State Updates**: Trigger re-renders and password regeneration
+### useState
 
-#### useCallback Hook
+```javascript
+const [length, setLength] = useState(8);
+const [numAllowed, setNumAllowed] = useState(false);
+const [charAllowed, setCharAllowed] = useState(false);
+const [password, setPassword] = useState("");
+```
 
-- **Performance Optimization**: Memoizes functions to prevent unnecessary re-renders
-- **Dependency Arrays**: Functions recreate only when dependencies change
-- **Memory Optimization**: Prevents function recreation on every render
-- **Child Component Optimization**: Prevents unnecessary child re-renders
+### useCallback
 
-#### useEffect Hook
+- Memoizes function
+- Prevents recreation on every render
+- Better performance
 
-- **Side Effects**: Automatically generates new password when settings change
-- **Dependency Array**: Monitors length, numAllowed, and charAllowed changes
-- **Lifecycle Management**: Runs effects when component mounts and updates
+```javascript
+const generatePassword = useCallback(() => {
+  // Generate password logic
+}, [length, numAllowed, charAllowed]);
+```
 
-#### useRef Hook
+### useEffect
+
+- Runs when dependencies change
+- Auto-generates password
+
+```javascript
+useEffect(() => {
+  generatePassword();
+}, [length, numAllowed, charAllowed]);
+```
+
+### useRef
+
+- Reference to input element
+- Direct DOM access for copy
+
+```javascript
+const passwordRef = useRef(null);
+passwordRef.current.select(); // Select text
+```
+
+## Setup
+
+```bash
+npm install
+npm run dev
+```
+
+## Features
+
+- Adjustable password length
+- Include numbers option
+- Include special characters option
+- Copy to clipboard
+- Auto-generate on option change
+
+## Learning Outcome
+
+Master advanced hooks and performance optimization.
 
 - **DOM Manipulation**: Direct access to input element for text selection
 - **Imperative Operations**: Perform actions like select() and setSelectionRange()

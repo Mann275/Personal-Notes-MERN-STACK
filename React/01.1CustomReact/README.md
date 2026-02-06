@@ -1,50 +1,73 @@
 # Custom React Implementation
 
-A custom React library implementation built from scratch to understand React's core concepts and internals.
+## Topics Covered
 
-## Features
+- React internals understanding
+- Virtual DOM concept
+- Custom createElement function
+- Custom render function
+- JSX to JavaScript conversion
+- DOM manipulation
 
-- **Custom React Library** built from scratch
-- **Virtual DOM** implementation
-- **Component Rendering** system
-- **State Management** basics
-- **JSX Transformation** understanding
-- **React Internals** exploration
+## What This Project Does
 
-## Project Structure
+Builds a mini React library from scratch to understand how React works internally.
 
+## Key Concepts
+
+### React Flow
+
+1. Create element object (Virtual DOM)
+2. Convert to real DOM elements
+3. Render to browser
+
+### Custom Functions
+
+- `createElement()` - Creates element object
+- `render()` - Converts object to DOM and renders
+
+### Understanding JSX
+
+```javascript
+// JSX (what we write)
+<div>Hello</div>
+
+// JavaScript object (what React creates)
+{
+  type: 'div',
+  props: { children: 'Hello' }
+}
+
+// Real DOM (what browser shows)
+<div>Hello</div>
 ```
-01.1CustomReact/
-├── index.html               # HTML template
-├── index.js                # Main entry point with custom React
-└── README.md
-```
 
-## Technologies Used
+## Setup
 
-- **Vanilla JavaScript**
-- **Custom DOM Manipulation**
-- **HTML5**
-- **CSS3**
+Open `index.html` in browser - no build needed!
 
-## Key Concepts Implemented
+## Learning Outcome
+
+Understand React's core working before using the real library.
 
 ### 1. **Custom createElement Function**
+
 ```javascript
 function createElement(type, props, ...children) {
   return {
     type,
     props: {
       ...props,
-      children: children.map(child =>
-        typeof child === "object" ? child : createTextElement(child)
-      )
-    }
+      children: children.map((child) =>
+        typeof child === "object" ? child : createTextElement(child),
+      ),
+    },
   };
 }
 ```
 
 ### 2. **Custom Render Function**
+
 ```javascript
 function render(element, container) {
   // Custom DOM manipulation logic
@@ -53,6 +76,7 @@ function render(element, container) {
 ```
 
 ### 3. **Component System**
+
 - Functional component handling
 - Props passing mechanism
 - Children rendering logic
@@ -84,22 +108,21 @@ open index.html
 ## Code Examples
 
 ### Creating Elements
+
 ```javascript
-const element = createElement(
-  'div',
-  { className: 'container' },
-  'Hello World'
-);
+const element = createElement("div", { className: "container" }, "Hello World");
 ```
 
 ### Rendering to DOM
+
 ```javascript
-render(element, document.getElementById('root'));
+render(element, document.getElementById("root"));
 ```
 
 ## Educational Value
 
 This project helps understand:
+
 - How React works under the hood
 - Virtual DOM implementation basics
 - Component rendering pipeline

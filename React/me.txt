@@ -35,6 +35,10 @@ react-router-dom
   createRoutesFromElements,
   Route,)
 
+  parameterized url- 
+  =params
+  =query <?>
+
 
 it is used because of prop drilling like geting any prop/data from grand parent to child directly
   context api -
@@ -60,3 +64,6 @@ appwrite for backend serviecs
 tiny mce for that text editor
 html react parcer for displaying proper 
 react hook form 
+npm i @reduxjs/toolkit react-redux react-router-dom appwrite @tinymce/tinymce-react html-react-parser react-hook-form
+
+environment variables .env 

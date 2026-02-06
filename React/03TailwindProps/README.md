@@ -1,32 +1,62 @@
-# React Card Component with TailwindCSS and Props
+# Card Component - Props & Tailwind
 
-## Project Overview
+## Topics Covered
 
-This project demonstrates React props system combined with TailwindCSS for styling. It creates reusable Card components that display user profiles with customizable properties, showcasing how to pass data between components and style them with utility-first CSS.
+- Props (Properties)
+- Component reusability
+- Tailwind CSS integration
+- Default props
+- Dynamic content
 
-## Theory & Concepts
+## What This Project Does
 
-### React Props
+Reusable Card component with different data passed via props. Styled with Tailwind CSS.
 
-- **Props** (Properties) are arguments passed from parent to child components
-- Props make components reusable by allowing different data for each instance
-- Props are read-only and cannot be modified by the receiving component
-- **Default Props** can be set using default parameter values in function signatures
-- Props enable component composition and data flow in React applications
+## Key Concepts
 
-### TailwindCSS
+### Props
 
-- **Utility-First CSS Framework** that provides low-level utility classes
-- Classes like `bg-blue-600`, `p-3`, `rounded-xl` style elements without custom CSS
-- **Responsive Design** built-in with breakpoint prefixes
-- **Component Reusability** through consistent utility patterns
-- Faster development with pre-built utility classes
+```javascript
+function Card({ username = "Guest", btnText = "Click" }) {
+  return <div>{username}</div>
+}
 
-### Component Composition
+// Using component
+<Card username="John" btnText="Visit" />
+<Card username="Jane" />
+```
 
-- **Composition** allows building complex UIs from simple components
-- Multiple instances of the same component with different props
-- Promotes code reusability and maintainability
+### Why Props?
+
+- Pass data from parent to child
+- Make components reusable
+- Same component, different data
+- Props are read-only
+
+### Tailwind CSS
+
+- Utility classes: `bg-blue-500`, `p-4`, `rounded-lg`
+- No custom CSS needed
+- Fast styling
+- Responsive by default
+
+## Setup
+
+```bash
+npm install
+npm run dev
+```
+
+## Features
+
+- Multiple card instances
+- Different data for each card
+- Tailwind utility classes
+- Default prop values
+
+## Learning Outcome
+
+Understand props and component reusability with Tailwind styling.
 
 ## Project Implementation
 
