@@ -224,26 +224,6 @@
 
 ---
 
-## 📂 Projects
-
-| #   | Project Name            | Topics Covered                 |
-| --- | ----------------------- | ------------------------------ |
-| 1   | Custom React            | React internals, Virtual DOM   |
-| 2   | Vite Project            | React setup, basics            |
-| 3   | Counter                 | useState, event handling       |
-| 4   | Tailwind Props          | Props, Tailwind CSS            |
-| 5   | BG Changer              | useState, dynamic styling      |
-| 6   | Password Generator      | useEffect, useRef, useCallback |
-| 7   | Currency Converter      | Custom hooks, API integration  |
-| 8   | React Router            | Routing, navigation            |
-| 9   | Mini Context            | Context API basics             |
-| 10  | Theme Switcher          | Context API, theme management  |
-| 11  | Todo with Local Storage | Context API, localStorage      |
-| 12  | Redux Todo              | Redux Toolkit                  |
-| 13  | Blog Project (Final)    | Complete React + Backend       |
-| 14  | Formik & Yup            | Form validation                |
-
----
 
 ## 🚀 Getting Started
 
@@ -277,8 +257,7 @@ npm run dev
 | 10  | Theme Switcher          | Context API, theme management  |
 | 11  | Todo with Local Storage | Context API, localStorage      |
 | 12  | Redux Todo              | Redux Toolkit                  |
-| 13  | Blog Project (Final)    | Complete React + Backend       |
-| 14  | Formik & Yup            | Form validation                |
+| 13  | Formik & Yup            | Form validation                |
 
 ---
 

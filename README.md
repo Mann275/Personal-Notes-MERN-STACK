@@ -282,7 +282,6 @@ A comprehensive collection of my programming and development notes, organized by
 | 28  | Formik               |
 | 29  | Yup Validation       |
 
-**✨ Projects:** 14 practical projects covering all React concepts  
 **📝 Interview Ready:** Complete with Hinglish explanations and Interview Lines
 
 </details>
@@ -386,8 +385,6 @@ A comprehensive collection of my programming and development notes, organized by
 | 45  | Error Handling Best Practices        |
 | 46  | MongoDB Indexing for Performance     |
 
-**✨ Projects:** 13 progressive projects from basics to full-stack authentication  
-**📝 Interview Ready:** 45 topics with definitions, Hinglish explanations, and code examples  
 **🔥 Complete Tech Stack:** Node.js + Express.js + MongoDB + Mongoose + JWT + Bcrypt
 
 </details>
@@ -416,11 +413,10 @@ HTML (✅) → CSS (✅) → JavaScript (✅) → React (✅) → Node.js + Mong
 
 These are personal learning notes created while studying web development and version control. Each section contains:
 
-
 ---
 
 <div align="center">
 
-Made with ❤️ for learning
+Made with ❤️ for learning by Mann.
 
 </div>

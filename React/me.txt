@@ -58,12 +58,3 @@ steps--
 dispatch reudecer ko use karte hui store me value add karta hai
 
 
-=============================
-project
-appwrite for backend serviecs
-tiny mce for that text editor
-html react parcer for displaying proper 
-react hook form 
-npm i @reduxjs/toolkit react-redux react-router-dom appwrite @tinymce/tinymce-react html-react-parser react-hook-form
-
-environment variables .env 
