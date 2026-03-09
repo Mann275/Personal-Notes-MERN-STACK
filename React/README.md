@@ -261,6 +261,18 @@ npm run dev
 
 ---
 
+## 🎮 Side Quest Projects
+
+| #  | Project Name     | Topics Covered                                          |
+|----|------------------|---------------------------------------------------------|
+| S1 | Todo             | useState, localStorage, CRUD                            |
+| S2 | User Profile Form| Controlled forms, validation                            |
+| S3 | React Routes Demo| React Router, nested routes                             |
+| S4 | Form             | Form handling patterns                                  |
+| S5 | **Dice Game**    | useState, useEffect, styled-components, toast UI, modal |
+
+---
+
 ## 🚀 Interview Guide
 
 **📝 Complete React Interview Questions:** [React-Interview.md](React-Interview.md)
